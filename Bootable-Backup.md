@@ -1,3 +1,6 @@
+It's very important to use some Linux file system on your usb drive.  
+Because if you use FAT file system
+
 Format a USB Drive in Linux  
 https://www.baeldung.com/linux/usb-drive-format
 
@@ -39,7 +42,8 @@ For example, to backup the whole system, specify the root folder (/) as the sour
 sudo rsync -aAXv --delete --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,"swapfile",/lost+found,~/.cache} / /run/media/fastoch/BootableBackup/
 ```
 
-To get the path to your USB drive, open it in your file browser when it's mounted, and copy its path from the address bar at the top.
+To get the path to your USB drive, open it in your file browser when it's mounted, and copy its path from the address bar at the top.  
+It takes quite a while to backup the whole system. 
 
 # Restore
 
