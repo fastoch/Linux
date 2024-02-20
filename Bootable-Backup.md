@@ -10,13 +10,16 @@ https://www.youtube.com/watch?v=oS5uH0mzMTg
 
 cd to root: `cd /`  
 
-Then, run the following cmd after replacing source and destination with their actual locations:
+Then, run the following cmd after replacing `<source>` and `<destination>` with their actual locations:
   
 ```bash
-sudo rsync -aAXv --delete --dry-run --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,"swapfile",/lost+found,".cache"} /<source> /<destination>
+sudo rsync -aAXv --delete --dry-run --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,"swapfile",/lost+found,"~/.cache"} /<source> /<destination>
 ```
-  
-When you're ready to make an actual backup, simply run the same cmd after removing the --dry-run option.
+
+I've specified some directories to exclude because they're populated and used only after the system boots up.  
+rsync will backup these folders, but not their content.  
+    
+When you're ready to make an actual backup, simply run the same cmd after removing the `--dry-run` option.
 
 -a => archive mode  
 -A => preserve ACLs (access control lists)  
