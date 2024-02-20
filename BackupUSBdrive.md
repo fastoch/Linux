@@ -18,9 +18,9 @@ sudo rsync -aAXv --delete --dry-run --exclude='/dev/*' --exclude='/sys/*' --excl
 - --delete => incremental backup, only backs up the difference between source and destination
 - --dry-run => simulates the backup
 
-When you dry run is satisfactory, run the actual backup:
+When you dry run is satisfactory, run the actual backup, source being the root directory (/) and destination being your USB drive:
 ```
-sudo rsync -aAXv --delete --dry-run --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='lost+found' /source /destination
+sudo rsync -aAXv --delete --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='lost+found' / /run/media/fastoch/rsyncBackup
 ```
 
 ## Restore
