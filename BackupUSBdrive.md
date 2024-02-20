@@ -16,7 +16,7 @@ sudo rsync -aAXv --delete --dry-run --exclude='/dev/*' --exclude='/sys/*' --excl
 - -X => preserve extended attributes
 - -v => increase verbosity
 - --delete => incremental backup, only backs up the difference between source and destination
-- --dry-run => simulates the backup
+- --dry-run => simulates the backup, which allows you to check excluded files match your need
 
 When you dry run is satisfactory, run the actual backup, source being the root directory (/) and destination being your USB drive:
 ```
