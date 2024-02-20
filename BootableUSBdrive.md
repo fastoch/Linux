@@ -20,4 +20,5 @@ restore your flash drive back to its normal not-bootable state.
 - Press Enter twice to create this partition and make it primary.  
 - Navigate with arrow keys to **Write** and press Enter to write the changes.  
 - Type **Yes** to confirm and Quit the program.  
-- Run `sudo fdisk -l` to check if the new partition has been created.
+- Run `sudo fdisk -l` to check if the new partition has been created (it should be named sdX1).
+- Format this partition as ext4 file system (or any other file system): `sudo mkfs.ext4 -n 'fastoch' /dev/sdX1`
