@@ -1,4 +1,4 @@
-Format a USB Drive in Linux
+Format a USB Drive in Linux  
 https://www.baeldung.com/linux/usb-drive-format
 
 Backup and Restore Your Linux System with rsync  
