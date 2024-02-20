@@ -9,7 +9,7 @@ It's a universal way to backup files on Linux.
 The idea is to backup our entire system to a USB flash drive.  
 This flash drive will then allow us to restore our Linux system if it crashes.  
 ```
-sudo rsync -aAXv --delete --dry-run --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='lost+found' /source /destination
+sudo rsync -aAXv --delete --dry-run --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='Downloads' --exclude='lost+found' /source /destination
 ```
 - -a => archive mode
 - -A => preserve ACLs (Access Control Lists)
@@ -20,7 +20,7 @@ sudo rsync -aAXv --delete --dry-run --exclude='/dev/*' --exclude='/sys/*' --excl
 
 When you dry run is satisfactory, run the actual backup, source being the root directory (/) and destination being your USB drive:
 ```
-sudo rsync -aAXv --delete --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='lost+found' / /run/media/fastoch/rsyncBackup
+sudo rsync -aAXv --delete --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='Downloads' --exclude='lost+found' / /run/media/fastoch/rsyncBackup
 ```
 
 ## Restore
