@@ -9,10 +9,14 @@ It's a universal way to backup files on Linux.
 The idea is to backup our entire system to a USB flash drive.  
 This flash drive will then allow us to restore our Linux system if it crashes.  
 ```
-sudo rsync -aAXv --delete
+sudo rsync -aAXv --delete --dry-run --exclude=/mnt/* --exclude=/media/* --exclude="swapfile" --exclude=".cache" --exclude="lost+found" /source /destination
 ```
-- a => archive mode
-- A => 
+- -a => archive mode
+- -A => preserve ACLs (Access Control Lists)
+- -X => preserve extended attributes
+- -v => increase verbosity
+- --delete => incremental backup, only backs up the difference between source and destination
+- --dry-run => simulates the backup
 
 
 ## Restore
