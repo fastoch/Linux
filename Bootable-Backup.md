@@ -19,8 +19,6 @@ sudo rsync -aAXv --delete --dry-run --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run
 I've specified some directories to exclude because they're populated and used only after the system boots up.  
 rsync will backup these folders, but not their content.  
     
-When you're ready to make an actual backup, simply run the same cmd after removing the `--dry-run` option.
-
 -a => archive mode  
 -A => preserve ACLs (access control lists)  
 -X => preserve extended attributes  
@@ -32,3 +30,10 @@ if this is this not your first backup, only the difference between your source a
   
 --dry-run => simulate the backup  
 
+When you're ready to make an actual backup, simply run the same cmd after removing the `--dry-run` option.  
+For example, to backup the whole system, specify the root folder (/) as the source, and your USB drive as the destination:
+```bash
+sudo rsync -aAXv --delete --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,"swapfile",/lost+found,"~/.cache"} / /<destination>
+```
+
+To get the path to your USB drive, open it in your file browser when it's mounted, and copy its path from the address bar at the top. 
