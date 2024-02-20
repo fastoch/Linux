@@ -8,7 +8,8 @@ It's a universal way to backup files on Linux.
 
 The idea is to backup our entire system to a USB flash drive.  
 This flash drive will then allow us to restore our Linux system if it crashes.  
-It's very important to use some Linux file system on your usb drive, because if you use FAT file system, rsync won't be able to copy all the files attributes.
+It's very important to use some Linux file system on your usb drive, because   
+if you use FAT file system, rsync won't be able to copy all the files attributes.
 
 Once your usb drive is ready, cd to your home folder and run the following cmd:
 ```
