@@ -24,6 +24,7 @@ When dry run is satisfactory, run the actual backup, source is the root director
 ```
 sudo rsync -aAXv --delete --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='Downloads' --exclude='lost+found' / /run/media/fastoch/rsyncBackup
 ```
+It takes quite a while to backup the whole system.  
 
 ## Restore
 
