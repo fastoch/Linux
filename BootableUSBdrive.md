@@ -9,4 +9,4 @@ To find out the name Linux assigned to your flash drive: `sudo fdisk -l`
 **sync** is a second command chained to **dd** via **&&**.  
 It makes sure that all the data is written to the flash drive and nothing is left in the cache.  
 
-/!\ This procedure wipes all the data from your USB flash drive. 
+>[!warning] This procedure wipes all the data from your USB flash drive. 
