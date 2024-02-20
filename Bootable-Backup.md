@@ -8,6 +8,8 @@ https://www.youtube.com/watch?v=oS5uH0mzMTg
 
 **rsync** is a command line tool available on any Linux system.  
 
+# Backup
+
 cd to root: `cd /`  
 
 Then, run the following cmd after replacing `<source>` and `<destination>` with their actual locations:
@@ -33,7 +35,11 @@ if this is this not your first backup, only the difference between your source a
 When you're ready to make an actual backup, simply run the same cmd after removing the `--dry-run` option.  
 For example, to backup the whole system, specify the root folder (/) as the source, and your USB drive as the destination:
 ```bash
-sudo rsync -aAXv --delete --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,"swapfile",/lost+found,"~/.cache"} / /<destination>
+sudo rsync -aAXv --delete --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/media/*,"swapfile",/lost+found,"~/.cache"} / /run/media/fastoch/BootableBackup/
 ```
 
-To get the path to your USB drive, open it in your file browser when it's mounted, and copy its path from the address bar at the top. 
+To get the path to your USB drive, open it in your file browser when it's mounted, and copy its path from the address bar at the top.
+
+# Restore
+
+
