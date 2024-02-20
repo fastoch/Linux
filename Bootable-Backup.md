@@ -7,6 +7,11 @@ Backup and Restore Your Linux System with rsync
 https://www.youtube.com/watch?v=oS5uH0mzMTg  
 
 **rsync** is a command line tool available on any Linux system.  
+
+cd to root: `cd /`  
+
+Then, run the following:
+  
 ```bash
 sudo rsync -aAXv
 ```
@@ -15,5 +20,5 @@ sudo rsync -aAXv
 -X = preserve extended attributes  
 -v = increase verbosity  
 
-
+--dry-run simulates the backup  
 
