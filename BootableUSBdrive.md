@@ -11,7 +11,12 @@ It makes sure that all the data is written to the flash drive and nothing is lef
 
 ### Be aware that this procedure wipes all the data from your USB flash drive.
 ---
-After you have used the bootable USB flash drive to install your Linux system, you need to restore your flash drive back to its normal not-bootable state.  
+After you have used the bootable USB flash drive to install your Linux system, 
+you need to restore your flash drive back to its normal not-bootable state.  
 To do so, you need to remove the bootable file system from it: `sudo wipefs --all /dev/sdX`  
 After that, create a new partition on it: `sudo cfdisk /dev/sdX`  
-Select *dos* and press *Enter* to create a new partition.
+Select **dos** and press **Enter** to create a new partition. Keep it at its maximum size.  
+Press Enter twice to create this partition and make it primary.  
+Navigate with arrow keys to **Write** and press Enter to write the changes.  
+Type **Yes** to confirm and Quit the program.  
+Run `sudo fdisk -l` to check if the new partition has been created.
