@@ -10,9 +10,10 @@ https://www.youtube.com/watch?v=oS5uH0mzMTg
 ```bash
 sudo rsync -aAXv
 ```
--a = archive mode
--A = preserve ACLs (access control lists)
--X = preserve extended attributes
--v = increase verbosity
+-a = archive mode  
+-A = preserve ACLs (access control lists)  
+-X = preserve extended attributes  
+-v = increase verbosity  
+
 
 
