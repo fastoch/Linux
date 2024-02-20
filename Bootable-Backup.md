@@ -16,7 +16,7 @@ https://www.youtube.com/watch?v=oS5uH0mzMTg
 Run the following cmd after replacing `<source>` and `<destination>` with their actual locations:
 ```bash
 sudo rsync -aAXv --delete --dry-run
---exclude=/dev/*,
+--exclude=/dev/*
 --exclude=/proc/*
 --exclude=/sys/*
 --exclude=/tmp/*
@@ -49,7 +49,7 @@ When you're ready to make an actual backup, simply run the same cmd after removi
 For example, to backup the whole system, specify the root folder (/) as the source, and your USB drive as the destination:
 ```bash
 sudo rsync -aAXv --delete
---exclude=/dev/*,
+--exclude=/dev/*
 --exclude=/proc/*
 --exclude=/sys/*
 --exclude=/tmp/*
