@@ -7,13 +7,13 @@ https://www.youtube.com/watch?v=oS5uH0mzMTg&t=9s
 It's a universal way to backup files on Linux.  
 
 The idea is to backup our entire system to a USB flash drive.  
-We also need a live USB to restore the system, in case it doesn't boot anymore.
+We also need a live USB drive to restore the system, in case it doesn't boot anymore.
 
-It's very important to use some Linux file system on your destination USB drive, because   
+It's very important to use some Linux file system on your backup USB drive, because   
 if you use FAT file system, rsync won't be able to copy all the files attributes.  
 Format your usb drive with ext4 for example.
 
-Once your usb drive is ready, cd to your home folder and run the following cmd:
+Once your backup usb drive is ready, cd to your home folder and run the following cmd:
 ```
 sudo rsync -aAXv --delete --dry-run --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='Downloads' --exclude='lost+found' /source /destination
 ```
@@ -32,11 +32,16 @@ It takes quite a while to backup the whole system (around 30 minutes for 15 GB).
 
 ## Restore
 
-If your system crashes and doesn't boot anymore, boot from a live USB.
+If your system crashes and doesn't boot anymore, boot from a live USB drive.
 Let's say we boot from an Arch Live ISO. Select **Boot Arch Linux** on the first page.  
-- We need to mount our system and our USB drive
-- Then we can restore the backup from our USB drive into our system
 
-To do that, we need to create 2 folders where 
+Now, we need to do two things:
+- We need to mount our system and our backup USB drive
+- Then we need to restore the backup from our USB drive into our system
+
+To do that, we need to create 2 folders where we're going to mount our devices.  
+`mkdir /mnt/system /mnt/usb`
+
+Now, we need to check the names of our devices with `lsblk`
 
 
