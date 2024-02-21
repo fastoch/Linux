@@ -15,12 +15,12 @@ Format your usb drive with ext4 for example.
 
 Once your backup usb drive is ready, run the following cmd:
 ```
-sudo rsync -avAX --delete --dry-run --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='Downloads' --exclude='lost+found' /source /destination
+sudo rsync -avAX --delete --dry-run --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude='.cache' --exclude='Downloads' --exclude='lost+found' /source /destination
 ```
 
 Alternatively, you can group your excluded files, but you must cd to root (`cd /`) before running rsync:
 ```
-sudo rsync -avAX --delete --dry-run --exclude={"~/.cache","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","swapfile","lost+found","~/Dowloads"} /source /destination
+sudo rsync -avAX --delete --dry-run --exclude={"~/.cache","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","lost+found","~/Dowloads"} /source /destination
 ```
 
 - -a => archive mode
@@ -32,12 +32,12 @@ sudo rsync -avAX --delete --dry-run --exclude={"~/.cache","/dev/*","/proc/*","/s
 
 When your dry run is satisfactory, run the actual backup, source is the root directory (/) and destination is your USB drive:
 ```
-sudo rsync -avAX --delete --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude="swapfile" --exclude='.cache' --exclude='Downloads' --exclude='lost+found' / /run/media/fastoch/rsyncBackup
+sudo rsync -avAX --delete --exclude='/dev/*' --exclude='/sys/*' --exclude='/proc/*' --exclude='/tmp/*' --exclude='/run/*' --exclude='/mnt/*' --exclude='/media/*' --exclude='.cache' --exclude='Downloads' --exclude='lost+found' / /run/media/fastoch/rsyncBackup
 ```
 
 Alternative cmd:
 ```
-sudo rsync -avAX --delete --exclude={"~/.cache","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","swapfile","lost+found","~/Dowloads"} / /run/media/fastoch/rsyncBackup
+sudo rsync -avAX --delete --exclude={"~/.cache","/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","lost+found","~/Dowloads"} / /run/media/fastoch/rsyncBackup
 ```
 
 It takes quite a while to backup the whole system (around 30 minutes for 15 GB). 
@@ -69,6 +69,7 @@ ls
 ```
 
 Now, let's restore the backup:
-`rsync -avAX --delete `
+`rsync -avAX --delete /mnt/usb/ /mnt/system`
+It is **important** to remove the slash at the end of the 'system' directory, because otherwise rsync creates a 'usb' subdirectory within the 'system' directory and restores everything there, which is not what we want.
 
 The option `--delete` is there to restore only the files that have been deleted, which saves us a lot of time.
