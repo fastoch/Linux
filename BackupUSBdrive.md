@@ -68,8 +68,8 @@ cd ../usb
 ls
 ```
 
-Now, let's restore the backup:
-`rsync -avAX --delete /mnt/usb/ /mnt/system`
+Now, let's restore the backup:  
+`rsync -avAX --delete /mnt/usb/ /mnt/system`  
 It is **important** to remove the slash at the end of the 'system' directory, because otherwise rsync creates a 'usb' subdirectory within the 'system' directory and restores everything there, which is not what we want.
 
 The option `--delete` is there to restore only the files that have been deleted, which saves us a lot of time.
