@@ -57,7 +57,7 @@ To do that, we need to create 2 folders where we're going to mount our devices.
 Now, we need to check the names of our devices with `lsblk`
 
 Then, we can mount our devices: 
-`mount /dev/sda1 /mnt/system`
+`mount /dev/sda1 /mnt/system`  
 `mount /dev/sdb1 /mnt/usb`
 
 You can enter these folders and check what files are there:
