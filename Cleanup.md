@@ -6,7 +6,7 @@ https://gist.github.com/rumansaleem/083187292632f5a7cbb4beee82fa5031
 ## Remove orphan packages
 ```
 pacman -Qtdq
-sudo pacman -Rs $(pacman -Qtdq)
+sudo pacman -R $(pacman -Qtdq)
 ```
 
 ## Cleanup log files
@@ -18,5 +18,5 @@ sudo pacman -Rs $(pacman -Qtdq)
 ## Remove cache files older than 1 month
 ```
 sudo find ~/.cache/ -type f -atime +30 -delete
-sudo find ~/var/cache/ -type f -atime +30 -delete
+sudo find /var/cache/ -type f -atime +30 -delete
 ```
