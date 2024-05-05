@@ -33,6 +33,34 @@ They store all the information except the file name and the data.
 
 If you run out of inodes, you cannot create new files, even if you have space left on the given partition.  
 
-For example, if you run a mail server, you might have a mail that won't leave the server 
+# What's wrong with my WiFi?
 
-# 
+Linux distributions offer **live mode**. You can use this to demo the distro before you install it.  
+And if WiFi doesn't work in live mode, then you shouldn't install this distro in the first place.  
+
+This usually comes down to hardware compatibility.  
+Since drivers are built into the Linux distribution itself, usually you'll have drivers for all the noteworthy Wi-Fi cards out there.  
+If your Wi-Fi card is not compatible with your distro, the easiest solution is to replace it with one that's known to work with Linux.  
+You can also consider buying a USB Wi-Fi card, especially if your manufacturer doesn't allow you to replace the internal WiFi card.
+
+# Gnome apps aren't opening
+
+Go to Settings and make sure the locale (language) settings are set up properly.
+Once you set the locale settings, log out, log in, and the applications should open again.
+
+# Poor gaming performance (Nvidia)
+
+Normally, your video card driver is going to be built into your distribution.  
+So you shouldn't have to do anything in order to get your video card up and running.  
+
+But Nvidia has a proprietary driver that they don't upstream to Linux.  
+As a result of this, **you have to install the Nvidia driver manually**.  
+Thankfully, most distributions make this pretty easy nowadays.  
+
+# Extremely Erratic Behavior
+
+You probably have memory issues.  
+If you have defective memory chips, your computer might run
+
+---
+EOF
