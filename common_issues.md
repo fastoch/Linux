@@ -25,3 +25,14 @@ You should systematically include this file in your file shares.
 
 # The disk is full (but it isn't)
 
+`df -h` might show you that you have plenty of free space.  
+Try running `df -i` instead. This will show you how many inodes you're using. Maybe you're out of inodes.  
+
+**Inodes** store metadata for every file on your system in a table-like structure usually located near the beginning of a partition.  
+They store all the information except the file name and the data.  
+
+If you run out of inodes, you cannot create new files, even if you have space left on the given partition.  
+
+For example, if you run a mail server, you might have a mail that won't leave the server 
+
+# 
