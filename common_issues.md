@@ -60,7 +60,12 @@ Thankfully, most distributions make this pretty easy nowadays.
 # Extremely Erratic Behavior
 
 You probably have memory issues.  
-If you have defective memory chips, your computer might run
+If you have defective memory chips, your computer might run just fine most of the time, but have some quirks now and then.  
+In such a case, it's recommended to **run Memtest86+** for a few hours: https://memtest.org/  
+
+# Narrowing down hardware vs software issues
+
+
 
 ---
 EOF
