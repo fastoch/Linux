@@ -34,7 +34,24 @@ Facebook, Amazon, the NASA, IBM, Google, NYSE (New York Stock Exchange)... they 
 
 The main core distributions of Linux include Red Hat (Fedora and CentOS), Debian (Ubuntu), Suse, Arch, and Gentoo.
 
-# Configuring a Linux server
+# Using an EC2 instance as your virtual server
+
+- Go to aws.amazon.com and create a new account.  
+- Navigate to My account and click on AWS management console.
+- Select root user and enter your credentials (email and pwd).  
+- Type ec2 in the search box and select the matching result. That will take you to the EC2 console.  
+
+>[!note]
+>EC2 = Elastic Compute Cloud
+
+Each virtual machine (VM) is called an **instance**.  
+
+- From the EC2 console, go to Instances and click on Launch an instance to create a new VM.  
+- Choose an Amazon Machine Image (AMI),
+- choose an instance type,
+- storage: make sure that "delete on termination" is checked
+- select an existing security group (default or custom)
+- review your settings and launch the instance
 
 
 
