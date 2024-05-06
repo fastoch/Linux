@@ -65,7 +65,30 @@ In such a case, it's recommended to **run Memtest86+** for a few hours: https://
 
 # Narrowing down hardware vs software issues
 
+Download the ISO image of your favorite distro, create a bootable media out of it, and run it in live mode on your hardware.  
+If your problem persists in that live environment, then it's likely that there's a hardware issue.  
+Otherwise, you might have a configuration issue in your installed environment, something to fix in the settings.  
 
+**Live media is something you should always have around.**  
+It helps you troubleshoot things by narrowing down where the problem space is.  
+And if you can't boot your OS, a live media will allow you to get some files off of it before reinstalling.
 
----
-EOF
+# DisplayLink causes many issues with docking stations
+
+You should ditch DisplayLink. It's a popular technology for USB hubs and docking stations.  
+The thing is DisplayLink is very problematic and it has no reason to exist whatsoever, seriously.  
+Any operating system knows how to interface with docking stations by itself, it doesn't need DisplayLink.  
+
+With a true docking station, you just plug it in and you're done, nothing to install.  
+If you have to install something to make it work, then there's a problem.  
+
+Just get a standard USB-c docking station, and you won't have any problem.
+
+# Your hardware isn't properly supported
+
+Maybe you're runnning a distribution that's not compatible with your hardware.  
+But more often than that, the problem is that you're using too old of a Linux kernel.  
+
+The Linux kernel has most of the drivers that Linux needs built right in.  
+If you're using a kernel that's older than your hardware, then it might not include the proper drivers.
+
