@@ -41,8 +41,11 @@ output appended data as the file grows (very handy when working with log files):
 display the entire contents of a file:  
 `cat .bashrc`  
 
+display the entire contents of a file and show line numbers:  
+`cat -n .bash_history`
+
 >[!note]
->cat was created to concatenate files to standard output, run `cat --help` to know more
+>cat's primary function is to concatenate files to standard output, run `cat --help` to know more
 
 ## more
 
