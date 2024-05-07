@@ -1,4 +1,4 @@
-src = https://www.youtube.com/watch?v=3L0HDLh_QMI&list=PLtPuNR8I4TvkwU7Zu0l0G_uwtSUXLckvh
+src = https://www.youtube.com/watch?v=79VOcqB62hM&list=PLdRNkbtVPBrRFQQChK0Oi_U4_aXuSCp8T
 
 # What is Linux?
 
@@ -47,11 +47,26 @@ The main core distributions of Linux include Red Hat (Fedora and CentOS), Debian
 Each virtual machine (VM) is called an **instance**.  
 
 - From the EC2 console, go to Instances and click on Launch an instance to create a new VM.  
-- Choose an Amazon Machine Image (AMI),
-- choose an instance type,
+- Choose an Amazon Machine Image (AMI)
+- choose an instance type 
 - storage: make sure that "delete on termination" is checked
-- select an existing security group (default or custom)
+- select an existing security group (default or custom one)
 - review your settings and launch the instance
+- select or create an SSH key pair
+- download the private key file and store it in a secure and accessible location
+- finally, you can launch your instance
+- an instance gets created, it has a unique ID and gets assigned a public IP address
 
+If you switch off the instance, the IP address goes away. And if you switch it back on, it will get a new IP.  
 
+To access your instance via SSH:
+- locate your private key file (your key must not be publicy viewable for SSH to work)
+- connect to your instance using its public DNS (everything after the @)
+- example: `ssh -i "private-key-file" username@ec2-x-x-x-x.eu-west-3.compute.amazonaws.com`
+
+In this example, x-x-x-x is the public IP address of your instance.  
+And eu-west-3 is the region in which your instance has been deployed. For more information, click on the link below:  
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions  
+
+# 
 
