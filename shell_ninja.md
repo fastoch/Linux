@@ -44,8 +44,8 @@ display the entire contents of a file:
 display the entire contents of a file and show line numbers:  
 `cat -n .bash_history`
 
->[!note]
->cat's primary function is to concatenate files to standard output, run `cat --help` to know more
+concatenate files to standard output:  
+`cat file1 file2` 
 
 ## more
 
