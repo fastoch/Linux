@@ -62,7 +62,7 @@ display the contents of a file one page at a time:
 
 ---
 
-# Advanced commands
+# Intermediate commands
 
 ## rm
 
@@ -88,6 +88,9 @@ force removal + recursive removal:
 
 ## grep
 
+---
+
+# Advanced commands
 
 ---
 EOF
