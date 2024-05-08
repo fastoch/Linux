@@ -8,6 +8,8 @@ if you run `ls -l` or `ls -al` (shows hidden files), the first column in the oup
 - if the first character is a c, the file is a character file
 - if the first character is a d, the file is a directory
 - if the first character is an l, the file is a symbolic link
+- if the first character is a p, the file is a named pipe
+- if the first character is a s, the file is a socket file
 
 # Block files
 
@@ -53,8 +55,6 @@ you can check pipe creation: `ls -l | grep ^p`
 
 Just like pipes, they provide a means of inter-process communication.  
 Except they transfer the data between processes running on different environments or different machines.  
-
-
 
 ---
 EOF
