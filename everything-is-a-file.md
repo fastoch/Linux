@@ -3,9 +3,11 @@ In the Linux ecosystem, everything is considered a file, even directories.
 # The ls command provides the file type
 
 if you run `ls -l` or `ls -al` (shows hidden files), the first column in the ouput displays file type and permissions.  
-- if the first character is a d, it means the file is a directory
-- if the first character is a dash, it means this is a regular file
+- if the first character is a dash, the file is a regular file
 - if the first character is a b, the file is a block file
+- if the first character is a c, the file is a character file
+- if the first character is a d, the file is a directory
+- if the first character is an l, the file is a symbolic link
 
 # Block files
 
@@ -35,12 +37,22 @@ For instance: `ln -s .bash_history b_hist`
 
 # Pipes and named pipes
 
-**The pipe sign |** is used to pass the output of a command to the input of another command.  
+We use the **pipe sign |** to pass the output of a command to the input of another command.  
+A pipe allows inter-process communication (IPC), meaning data transfer between processes running on the same system.  
 The syntax is: `command1 | command2`  
-Pipes can be chained.  
 
-**Named pipes** 
+Pipes can be chained: `command1 | command2 | command3`  
 
+- A **traditional pipe** is "unnamed" and lasts only as long as the process.
+- A **named pipe**, however, can last as long as the system is up, beyond the life of the process.
+
+To create a **named pipe**: `mkfifo pipe1`  
+you can check pipe creation: `ls -l | grep ^p`  
+
+# Socket files
+
+Just like pipes, they provide a means of inter-process communication.  
+Except they transfer the data between processes running on different environments or different machines.  
 
 
 
