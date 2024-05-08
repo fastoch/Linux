@@ -22,7 +22,24 @@ This command outputs all files in the /dev folder whose name starts with "b". Th
 A character file is also a device file, but it provides unbuffered serial access to your hardware components.  
 With unbuffered serial access, we can only transfer data one **character** at a time.  
 
-To search for character files: `ls -l /dev | grep ^c`
+To search for character files: `ls -l /dev | grep ^c`  
+This cmd outputs files in the /dev folder whose name starts with a "c".  
+
+# Symbolic links
+
+They are references to other files on the file system.  
+To output symbolic links: `ls -l /dev | grep ^l`  
+
+To create a symbolic link: `ln -s target link_name`  
+For instance: `ln -s .bash_history b_hist`  
+
+# Pipes and named pipes
+
+**The pipe sign |** is used to pass the output of a command to the input of another command.  
+The syntax is: `command1 | command2`  
+Pipes can be chained.  
+
+**Named pipes** 
 
 
 
