@@ -22,4 +22,4 @@ to remove a non-empty directory: `rm -rf dirname` (-r = recursive, -f = force)
 >[!caution]
 >be very careful when using `rm -rf`, as this cmd can destroy your entiresystem!
 
-To be prompted before deletion: `rm -rfi dirname`
+To be prompted before deletion: `rm -rfi dirname`  (type y for yes, default is no)
