@@ -7,10 +7,12 @@
 - Vim can edit files inside a compressed archive (gzip, zip, tar, etc)
 - Vim includes a built-in diff tool for comparing files (vimdiff)
 
-
+interactive tutorial: https://www.openvim.com/
 
 # Nano
 
+- easier to learn than Vim
+- it has most of the shortcuts listed at the bottom of the window
 
 ---
 EOF
