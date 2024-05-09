@@ -7,6 +7,8 @@
 - Vim can edit files inside a compressed archive (gzip, zip, tar, etc)
 - Vim includes a built-in diff tool for comparing files (vimdiff)
 
+
+
 # Nano
 
 
