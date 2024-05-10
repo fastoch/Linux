@@ -41,7 +41,7 @@ The -m option in usermod command is used to move the content of the old home dir
 To lock a user account: `sudo usermod -L username`  
 To unlock a user account: `sudo usermod -U username`  
 
-To switch to a different user: `su - username`  
+To switch to a different user: `su username`  
 When trying to switch to a locked user, you get an authentication failure.  
 
 To delete a user: `sudo userdel -rf username`  
