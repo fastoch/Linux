@@ -67,8 +67,17 @@ To delete a user: `sudo userdel -rf username`
 
 # Groups
 
-- A group is a collection of all users that perform a similar function.
+- A group is a collection of users with similar permissions.
 - Each group has a unique group id.  
-- Each user is part of a group.
 
-https://wiki.archlinux.org/title/Users_and_groups#Group_management
+https://wiki.archlinux.org/title/Users_and_groups#Group_management  
+
+When a user is created, they're automatically added to a new group with the same name as the username.  
+
+- to display all existing groups on the system: `cat /etc/group` (first column = group name, third column = group id)
+- to check all the groups a specific user belongs to: `cat /etc/group | grep username`
+- to create a group: `sudo groupadd groupname`
+- to manually assign a group id to our new group: `sudo groupadd -g 1001 groupname` 
+- to modify an already existing group: `sudo groupmod -g 1002 -n newname oldname`
+- to delete a group: `sudo groupdel groupname`
+
