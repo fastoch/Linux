@@ -10,6 +10,8 @@ From the perspective of the OS, there is no distinction between human users and 
 However, each user is assigned a unique user id. And the user id range is different for human users and system users.  
 To see those ranges: `grep UID /etc/login.defs`  
 
+---
+
 The information about users is stored in /etc/passwd. To display its contents: `cat /etc/passwd`  
 This file contains seven fields for each user: 
 - the username
@@ -19,6 +21,8 @@ This file contains seven fields for each user:
 - the user's full name
 - the home directory
 - the default login shell
+
+---
 
 To create a new user: `sudo useradd -m -G additional_groups -s login_shell newuser`  
 Explanation: https://wiki.archlinux.org/title/Users_and_groups#User_management  
@@ -32,21 +36,34 @@ There's another way of adding a user: `sudo adduser username`
 Although it is not required to protect a newly created user with a password, it is highly recommended to do so:  
 `sudo passwd newuser`  
 
+---
+
 To modify the username of an existing user: `sudo usermod -l newname oldname`  
 
 When changing the username, you may also want to change the user’s home directory to reflect the new username.  
 To change the home directory: `sudo usermod -d /home/newname -m newname `  
 The -m option in usermod command is used to move the content of the old home directory to the new home directory.  
 
+--- 
+
 To lock a user account: `sudo usermod -L username`  
 To unlock a user account: `sudo usermod -U username`  
 
 To switch to a different user: `su username`  
-When trying to switch to a locked user, you get an authentication failure.  
+When trying to switch to a locked user, you'll get an authentication failure.  
+
+To switch to the root user: `su root`. This will prompt you for the root password.  
+
+If the current user is a **sudoer**, you can use this cmd to switch to root: `sudo -i`  
+This will prompt you for the sudo password of the current user instead of the root password.  
+
+---
 
 To delete a user: `sudo userdel -rf username`  
 -f forces removal of files, even if not owned by user  
 -r removes home directory and mail spool (if existing)
+
+---
 
 # Groups
 
