@@ -1,3 +1,7 @@
+**sources**: 
+- https://wiki.archlinux.org/title/Users_and_groups#User_management  
+- https://wiki.archlinux.org/title/Users_and_groups#Group_management  
+
 # Users
 
 Linux is a multi-user operating system, meaning multiple users can log in to the OS at the same time.  
@@ -18,14 +22,13 @@ This file contains seven fields for each user:
 - a placeholder for the password (password is stored in the /etc/shadow file)
 - the user id
 - the group id
-- the user's full name
+- free-text information
 - the home directory
 - the default login shell
 
 ---
 
 To create a new user: `sudo useradd -m -G additional_groups -s login_shell newuser`  
-Explanation: https://wiki.archlinux.org/title/Users_and_groups#User_management  
 
 There's another way of adding a user: `sudo adduser username`  
 
@@ -70,14 +73,36 @@ To delete a user: `sudo userdel -rf username`
 - A group is a collection of users with similar permissions.
 - Each group has a unique group id.  
 
-https://wiki.archlinux.org/title/Users_and_groups#Group_management  
-
 When a user is created, they're automatically added to a new group with the same name as the username.  
 
 - to display all existing groups on the system: `cat /etc/group` (first column = group name, third column = group id)
-- to check all the groups a specific user belongs to: `cat /etc/group | grep username`
+- to check all the groups a specific user belongs to: `groups username`
 - to create a group: `sudo groupadd groupname`
 - to manually assign a group id to our new group: `sudo groupadd -g 1001 groupname` 
 - to modify an already existing group: `sudo groupmod -g 1002 -n newname oldname`
 - to delete a group: `sudo groupdel groupname`
+
+---
+
+## sudo privileges
+
+When using `sudo` before a command, I'm telling the system to run this command as an administrator.  
+Users that are part of the **wheel** group are called **sudoers** and are able to run commands as administrators.  
+
+>[!note]
+>On some Linux systems (Debian), the sudoers group is called **sudo** instead of **wheel**.  
+
+To display all sudoers: `cat /etc/group | grep wheel`  
+
+To add a user to the wheel group: `sudo usermod -aG wheel username`  
+The `-a` option appends the new group to the list of other groups the user is already a member of.  
+
+>[!warning]
+>Without the -a option, you add the user to the specified group but you remove it from all other groups.
+
+
+
+---
+
+
 
