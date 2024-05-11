@@ -100,9 +100,8 @@ The `-a` option appends the new group to the list of other groups the user is al
 >[!warning]
 >Without the -a option, you add the user to the specified group but you remove it from all other groups.
 
-
+Another way to add a user to a group: `sudo gpasswd -a username groupname`  
+To remove a user from a group: `sudo gpasswd -d username groupname`
 
 ---
-
-
-
+EOF
