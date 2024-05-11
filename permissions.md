@@ -10,6 +10,16 @@
 - **write** (w) = 2
 - **execute** (x) = 1
 
+>[!warning]
+>To view the contents of a directory, you need execute permission on that directory.
+
+When you run `ls -l`: 
+- the first column represents the file type and permissions (owner, group, others)
+- the third column represents the owner of the file
+- the fourth column represents the group that this file belongs to
+
+
+
 # Commands
 
 ## chmod
