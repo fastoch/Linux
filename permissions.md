@@ -75,7 +75,7 @@ The same is true when a process is launched: it runs with the effective uid and 
 
 ## setuid
 
-When the setuid bit is used, the behavior described above is modified so that when an executable is launched, it does not run with the privileges of the user who launched it, but with that of the file owner instead.   
+When the setuid bit is used, the behavior described above is modified so that when an executable is launched, it does not run with the privileges of the user who launched it, but with those of the file owner instead.   
 
 If an executable has the setuid bit set on it, and it’s owned by root, when launched by a normal user, it will run with root privileges.  
 It should be clear why this represents a potential security risk, if not used correctly.
@@ -87,7 +87,7 @@ And if we run `ls -l /usr/bin/passwd`, we'll see that the owner permissions cont
 Meaning that whoever runs the passwd cmd, it will always be executed as root.  
 Which allows any user to change its password without being root.  
 
-- The setuid bit is represented by an **s** in place of the x of the executable bit on the **owner sector**.  
+- The setuid bit is represented by an **s** in place of the x of the executable bit on the **owner sector** (4th character).  
 - The s implies that the executable bit is set, otherwise you would see a capital S.  
 - The setuid and setgid bits have no effect if the executable bit is not set. 
 
@@ -103,7 +103,7 @@ A **file** which has the setgid bit set, when executed, instead of running with 
 When used on a **directory**, the setgid bit alters the standard behavior so that the group of the files created inside said directory will not be that of the user who created them, but that of the parent directory itself.  
 This is often used to ease the sharing of files (files will be modifiable by all the users that are part of said group).  
 
-This time, the **s** is present in place of the executable bit on the **group sector**.
+This time, the **s** is present in place of the executable bit on the **group sector** (7th character).
 
 ## sticky bit
 
