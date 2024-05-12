@@ -13,7 +13,7 @@
 >[!warning]
 >To view the contents of a directory, you need execute permission on that directory.
 
-When you run `ls -l`: 
+When you run `ls -l`, you get a long listing format of the contents of the current directory: 
 - the first column represents the file type and permissions (owner, group, others)
 - the third column represents the owner of the file
 - the fourth column represents the group that this file belongs to
