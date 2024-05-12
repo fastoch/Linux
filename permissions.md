@@ -21,7 +21,7 @@ When you run `ls -l`:
 ![image](https://github.com/fastoch/Linux/assets/89261095/acbbcf62-7706-4caf-bca5-831502f3892f)
 
 In the first column:
-- The file type is represented by one character (-, d, l, b, c, p, s, S, T)
+- The file type is represented by one character (-, d, l, b, c, p, s)
 - Each set of permissions is represented by 3 characters (rwx), always in that order: owner, group, others
 - A dash means that this type of permission is denied. r-x means that you can only read and execute the file
 
@@ -64,12 +64,27 @@ To apply permissions in a **recursive** manner, we must use the **-R** option: `
 
 # Special permissions
 
-When running `ls -l`, we've seen that the first character of the first column indicates the type of file.  
-This also indicates special permissions:
-- d = directory
-- \- = no special permission (simple file)
-- l = symbolic link (file pointing to some other file)
-- S = setuid/setgid permissions
+src = https://tech.feub.net/2008/03/setuid-setgid-et-sticky-bit/  
+
+Special permissions are an addition to regular permissions (read, write and execute): 
+- s = setuid/setgid permissions
+- t = sticky bit
+
+## setuid
+
+When we want a command to be executed as a specific user (mostly root), we use setuid.  
+
+For example, the command **passwd** is systematically executed as root, no matter who runs it.  
+And if we run `ls -l /usr/bin/passwd`, we'll see that permissions contain a **s** which stands for setuid:
+![image](https://github.com/fastoch/Linux/assets/89261095/c0c8f825-779d-4399-b5fd-57272c10d071)  
+
+
+
+## setgid
+
+
+
+## sticky bit
 
 ---
 EOF
