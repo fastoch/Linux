@@ -15,7 +15,7 @@ To grep on multiple files: `grep search_term file1 file2`
 
 # More advanced commands
 
-
+grep -E = egrep
 
 ---
 EOF
