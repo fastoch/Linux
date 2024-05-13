@@ -5,9 +5,15 @@ The basic syntax is: `grep search_term filename`
 
 ---
 
+# Simple commands
+
 To ignore case on a grep command: `grep -i search_term filename`  
 
 To grep on multiple files: `grep search_term file1 file2`  
+
+---
+
+# More advanced commands
 
 
 
