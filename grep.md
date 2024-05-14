@@ -26,5 +26,7 @@ Its basic syntax is: `grep search_term filename`
 - to print only a count of selected lines per file: `grep -c search_term filename`
 - to print line numbers with output lines: `grep -n search_term filename`
 
+@50%
+
 ---
 EOF
