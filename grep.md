@@ -25,6 +25,8 @@ Its basic syntax is: `grep search_term filename`
 - to select non-matching lines: `grep -v search_term filename`
 - to print only a count of selected lines per file: `grep -c search_term filename`
 - to print line numbers with output lines: `grep -n search_term filename`
+- to use a file containing patterns (one pattern per line); `grep -f pattern_file filename`
+- 
 
 @50%
 
