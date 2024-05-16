@@ -6,3 +6,5 @@
 - to return the number of results for the previous cmd: `sudo find / -xdev -name yay | wc -l`
 - to find all files under the root directory that end in .c: `sudo find / -xdev -name '*.c'`
 - to find all files under the current working directory that end in .txt: `find . -xdev -name '*.txt'`
+
+@30%
