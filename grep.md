@@ -21,14 +21,12 @@ Its basic syntax is: `grep search_term filename`
 >[!note]
 >egrep and fgrep are deprecated commands since 2007: https://lists.gnu.org/archive/html/info-gnu/2022-09/msg00001.html
 
-- to search recursively: `grep -r search_term filename` or `rgrep search_term filename`
+- to search recursively: `grep -r search_term directory_path` or `rgrep search_term directory_path`
 - to select non-matching lines: `grep -v search_term filename`
 - to print only a count of selected lines per file: `grep -c search_term filename`
 - to print line numbers with output lines: `grep -n search_term filename`
-- to use a file containing patterns (one pattern per line); `grep -f pattern_file filename`
-- 
+- to grep against a file containing multiple patterns (one per line); `grep -f pattern_file filename`
 
-@50%
 
 ---
 EOF
