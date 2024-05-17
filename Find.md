@@ -22,4 +22,7 @@ to find all directories under ~/Documents/ for which current user has all permis
 to restrict the previous command to directories named 'origin':  
 `find ~/Documents -perm 755 -type d -name origin` 
 
+to find all files in ~/.cache that haven't been accessed for 30 days and delete them:  
+`sudo find `
+
 @60%
