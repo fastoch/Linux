@@ -1,3 +1,9 @@
+src: 
+- https://www.man7.org/linux/man-pages/man1/find.1.html
+- https://sarata.com/linux_find.html
+
+---
+
 - to find all files named "yay" under the root directory: `sudo find / -xdev -name yay`
 
 >[!tip]
@@ -23,6 +29,11 @@ to restrict the previous command to directories named 'origin':
 `find ~/Documents -perm 755 -type d -name origin` 
 
 to find all files in ~/.cache that haven't been accessed for 30 days and delete them:  
-`sudo find `
+`find ~/.cache/ -type f -atime +30 -delete`
+
+to find all files in ~/Documents that do not end in '.txt':  
+`find ~/Documents ! -name '*.txt'`  
+
+
 
 @60%
