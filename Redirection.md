@@ -10,6 +10,9 @@ The output is usually the result that you get when you hit Enter after typing a 
 Standard error logs any error that is generated when the system is not able to run a command.  
 
 We can use various redirection techniques to manipulate how these components are handled.  
+For example, we can make a command input its results into a file instead of printing them on screen.  
+
+
 
 
 ---
