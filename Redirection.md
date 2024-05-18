@@ -31,6 +31,33 @@ If we want to append data rather than overwriting it, we'll use 2 'greater than'
 
 These redirection techniques can be particularly handy when working with applications or scripts.  
 
+The following script will ouput one line of standard output and one line of standard error:  
+```sh
+#!/bin/bash
+
+echo "This file has a standard output"
+
+# The following line will result in an error
+if {some wrong argument}
+```
+
+First, let's make our script file executable for the current user and users of the same group:  
+`sudo chmod 754 script1.sh`
+
+Now, we can run this script: `./script1.sh`
+
+The output will be:  
+```
+This file has a standard output
+./script1.sh: line 7: syntax error: unexpected end of file
+```
+
+Now, we can redirect the standard output of this script to a file and the standard error to another file:  
+`./script1.sh 1>>output.log 2>>error.log`  
+In the above command, we could remove the 1, since standard output is the default behavior of redirection.  
+The command would be: `./script1.sh >>output.log 2>>error.log` 
+
+@80%
 
 ---
 EOF
