@@ -22,12 +22,14 @@ The basic syntax is: `command > filename`
 
 A single 'greater than' sign overwrites the existing data.  
 
-If we want to append rather than overwrite, we'll use 2 'greater than' signs:  
+If we want to append data rather than overwriting it, we'll use 2 'greater than' signs:  
 `command >> filename`  
-This way, we won't overwrite already existing data.  
 
 ---
 
+# When can it be useful?
+
+These redirection techniques can be particularly handy when working with applications or scripts.  
 
 
 ---
