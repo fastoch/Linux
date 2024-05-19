@@ -12,6 +12,6 @@ It makes sure that all the data is written to the flash drive and nothing is lef
 ### Be aware that this procedure wipes all the data from your USB flash drive.
 ### You should make a copy of it before proceeding.
 ---
-After you have used the bootable USB flash drive to install your Linux system, you need to   
+After you have used the bootable USB flash drive to install your Linux system, you might want to   
 restore your flash drive back to its normal not-bootable state.  
 To do so: https://www.baeldung.com/linux/usb-drive-format
