@@ -63,7 +63,7 @@ If you want to redirect both the standard output and the standard error into a s
 `./script1.sh >>output.log 2>&1`  
 
 **2>&1** is an I/O redirection operator used in Bash that redirects the stderr stream to the same destination as the stdout stream.  
-It tells the system: "redirect the standard error to wherever the standard ouput has been redirected".  
+Basically, it tells the system: "redirect the standard error to wherever the standard ouput has been redirected".  
 In other words, it merges the error output with the regular output, making it easier to capture and handle errors.  
 
 For more about **2>&1**: https://tecadmin.net/io-redirection-operator-in-bash/  
@@ -72,7 +72,10 @@ For more about **2>&1**: https://tecadmin.net/io-redirection-operator-in-bash/
 
 # Use of the Pipe operator
 
-A pipe is a form of redirection that is used in Linux to send the output of one command 
+A pipe is a form of redirection that is used in Linux to send the output of one command to another for further processing.  
+- Pipes are unidirectional: the data flows from left to right through the pipeline.
+- A benefit of using pipes is that we don't have to use temporary files to move data along.
+- 
 
 ---
 EOF
