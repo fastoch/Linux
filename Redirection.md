@@ -2,7 +2,7 @@
 
 In computing, a **shell** is a program that exposes an operating system's services to a human user or other programs.
 
-In Linux, any program that you run has 3 important components:
+In Linux, any program that you run has 3 important I/O components:
 - standard input (StdIn), represented by 0
 - standard output (StdOut), represented by 1
 - standard error (StdErr), represented by 2
@@ -15,7 +15,7 @@ Standard error logs any error that is generated when the system is not able to r
 
 # Overwriting & Appending
 
-We can use various redirection techniques to manipulate how these three components are handled.  
+We can use various I/O redirection techniques to manipulate how the I/O streams are handled.  
 
 For example, we can make a command output its results into a file instead of printing them on screen.  
 The basic syntax is: `command > filename`  
@@ -57,7 +57,14 @@ Now, we can redirect the standard output of this script to a file and the standa
 In the above command, we could remove the 1, since standard output is the default behavior of redirection.  
 The command would be: `./script1.sh >>output.log 2>>error.log` 
 
-@80%
+If you want to redirect both the standard output and the standard error into a single file:  
+`./script1.sh >>output.log 2>&1`  
+
+**2>&1** is an I/O redirection operator used in Bash that redirects the stderr stream to the same destination as the stdout stream.  
+It tells the system: "redirect the standard error to wherever the standard ouput has been redirected".  
+In other words, it merges the error output with the regular output, making it easier to capture and handle errors.  
+
+For more about **2>&1**: https://tecadmin.net/io-redirection-operator-in-bash/  
 
 ---
 EOF
