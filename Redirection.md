@@ -29,7 +29,7 @@ If we want to append data rather than overwriting it, we'll use 2 'greater than'
 
 # When can it be useful?
 
-These redirection techniques can be particularly handy when working with applications or scripts.  
+These I/O redirection techniques can be particularly handy when working with applications or scripts.  
 
 The following script will ouput one line of standard output and one line of standard error:  
 ```sh
@@ -57,6 +57,8 @@ Now, we can redirect the standard output of this script to a file and the standa
 In the above command, we could remove the 1, since standard output is the default behavior of redirection.  
 The command would be: `./script1.sh >>output.log 2>>error.log` 
 
+## The 2>&1 operator
+
 If you want to redirect both the standard output and the standard error into a single file:  
 `./script1.sh >>output.log 2>&1`  
 
@@ -65,6 +67,12 @@ It tells the system: "redirect the standard error to wherever the standard ouput
 In other words, it merges the error output with the regular output, making it easier to capture and handle errors.  
 
 For more about **2>&1**: https://tecadmin.net/io-redirection-operator-in-bash/  
+
+---
+
+# Use of the Pipe operator
+
+A pipe is a form of redirection that is used in Linux to send the output of one command 
 
 ---
 EOF
