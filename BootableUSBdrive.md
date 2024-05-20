@@ -1,7 +1,7 @@
  Make a bootable USB drive on any Linux distro  
  https://www.youtube.com/watch?v=rpGgTTFKwiU  
 
- `dd bs=4M if=~/Downloads/archlinux.iso of=/dev/sdX status=progress && sync`
+ `sudo dd bs=4M if=~/Downloads/archlinux.iso of=/dev/sdX status=progress && sync`
 
 Replace sdX with the name assigned to the device by your Linux system.  
 To find out the name Linux assigned to your flash drive, press Ctrl+Alt+T to open a new terminal and run `sudo fdisk -l`
