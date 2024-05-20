@@ -34,7 +34,7 @@ https://wiki.archlinux.org/title/iwd
 # Running the archinstall script
 
 - `archinstall`
-- select mirror region (type / to search for your region)
+- select mirror region 
 - check your locales settings (keyboard, language, encoding)
 - disk config > manual partitioning > suggest partition layout
 - bootloader > Grub
@@ -47,6 +47,25 @@ https://wiki.archlinux.org/title/iwd
 - automatic time sync > true
 - optional repo > multilib
 - install
+
+---
+
+# Troubleshooting archinstall
+
+If the ISO on your USB drive does not contain an up-to-date version of archinstall:
+- update the keyring: `pacman -Sy archlinux-keyring`
+- if the keyring update fails: https://bbs.archlinux.org/viewtopic.php?id=293529
+
+- update archinstall: `pacman -Sy archinstall`
+- check version by trying to reupdate archinstall (should be 2.8 or later)
+
+- if python version on the ISO is outdated, run: 
+`pacman -S python-simple-term-menu python-pyparted python archinstall`
+
+- if you want to clean the disk before installing Arch, run `lsblk -a` to find your disk name,
+  and then `cfdisk /dev/disk_name` . Delete all partitions and write changes before exiting cfdisk.
+
+Then you can run archinstall.
 
 ---
 EOF
