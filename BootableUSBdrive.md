@@ -9,9 +9,9 @@ To find out the name Linux assigned to your flash drive, press Ctrl+Alt+T to ope
 **sync** is a second command chained to **dd** via **&&**.  
 It makes sure that all the data is written to the flash drive and nothing is left in the cache.  
 
-### Be aware that this procedure wipes all the data from your USB flash drive.
-### You should make a copy of it before proceeding.
+>[!warning]
+>Be aware that this procedure wipes all the data from your USB flash drive.
+>You should make a copy of it before proceeding.
 ---
-After you have used the bootable USB flash drive to install your Linux system, you might want to   
-restore your flash drive back to its normal not-bootable state.  
-To do so: https://www.baeldung.com/linux/usb-drive-format
+After you have used the bootable USB flash drive to install your Linux system, you might want to restore your flash drive   
+back to its normal not-bootable state. To do so: https://www.baeldung.com/linux/usb-drive-format
