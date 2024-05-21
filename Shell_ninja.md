@@ -8,10 +8,10 @@ The default shell for most Linux distributions is Bash (**B**ourne-**A**gain **S
 `chsh -l` will list all the shells currently installed on your machine  
 `cat /etc/shells` also displays the currently available shells
 
-`chsh -s /bin/fish` will make fish your default shell, reboot to apply the change
+`chsh -s /bin/fish` will make fish your default shell, reboot to apply the change  
+`su root` to switch user to root and apply the same cmd to change default shell for root
 
 `grep username /etc/passwd` shows the current default shell  
-
 
 ---
 
