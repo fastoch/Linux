@@ -1,6 +1,20 @@
 My favorite shell is fish (**F**riendly **I**nteractive **SH**ell).  
 The default shell for most Linux distributions is Bash (**B**ourne-**A**gain **SH**ell).
 
+---
+
+# Changing default shell
+
+`chsh -l` will list all the shells currently installed on your machine  
+`cat /etc/shells` also displays the currently available shells
+
+`chsh -s /bin/fish` will make fish your default shell, reboot to apply the change
+
+`grep username /etc/passwd` shows the current default shell  
+
+
+---
+
 # Basic commands
 
 ## touch
