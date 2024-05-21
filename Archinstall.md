@@ -35,10 +35,10 @@ https://wiki.archlinux.org/title/iwd
 
 - `archinstall`
 - select mirror region 
-- check your locales settings (keyboard, language, encoding)
+- check your locales settings (keyboard fr-pc, language en_GB, encoding utf-8)
 - disk config > manual partitioning > suggest partition layout
 - bootloader > Grub
-- profile > desktop > kde + all open-source graphics driver + sddm
+- profile > desktop > kde (desktop environment) + all open-source graphics driver + sddm (login manager)
 - audio > pipewire
 - kernel > linux-zen
 - additional packages: firefox fastfetch fish
