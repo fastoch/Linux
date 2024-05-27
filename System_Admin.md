@@ -146,8 +146,18 @@ This command returns the run level to graphical.target, equivalent to level 5 fo
 
 - The root directory is the parent of all other directories. It's represented by a simple slash **/**.
 - The **/bin** folder contains core OS programs that must be accessible before /usr gets mounted at boot (includes mount, ls, cd, ...)
-- **/usr/bin** is a primary home for binaries that are not part of the base OS itself (most user programs live here)
-- 
+- **/usr/bin** is a primary home for binaries that are not part of the base OS itself. Most user programs live here.
+
+>[!note]
+>Fun fact: USR stands for Unix System Resources, not user!
+
+- **/usr/local/bin** holds executables installed by the admin, usually after building them from source.
+  - This keeps local compiles separate to avoid overwriting system binaries
+- The **/sbin** directories house sysadmin utilities that require root access (like iptables and sshd)
+
+## Path environment variable
+
+When the same binary exists in multiple directories, you can specify the default by reordering 
 
 
 
