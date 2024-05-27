@@ -142,11 +142,14 @@ Then, to take the system to run level 5, let’s run the command:
 `sudo systemctl isolate graphical.target`  
 This command returns the run level to graphical.target, equivalent to level 5 for GUI.
 
-# 
+# Linux File System
+
+- The root directory is the parent of all other directories. It's represented by a simple slash **/**.
+- The **/bin** folder contains core OS programs that must be accessible before /usr gets mounted at boot (includes mount, ls, cd, ...)
+- **/usr/bin** is a primary home for binaries that are not part of the base OS itself (most user programs live here)
+- 
 
 
-
-@30min
 
 ---
 EOF
