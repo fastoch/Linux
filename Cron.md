@@ -12,4 +12,11 @@ src = https://www.youtube.com/watch?v=7cbP7fzn0D8
   - go to the very end of the file and add a new cron job
 
 A cron job consists of 6 fields:
-- 
+- minute
+- hour
+- day of month (dom)
+- month
+- day of the week (dow)
+- command
+
+@4min
