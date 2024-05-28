@@ -19,4 +19,13 @@ A cron job consists of 6 fields:
 - day of the week (dow)
 - command
 
-@4min
+Setting the value of a field to an asterisk * means "every" or "any".  
+For example:  
+- "execute this cmd every day at 9:05" would be "5 9 * * * cmd".
+- "execute this cmd every sunday at 8:32" would be "32 8 * * 7".
+- "execute this cmd at 3:00 on the 4th of July" would be "0 3 4 7 * cmd" 
+
+
+
+---
+EOF
