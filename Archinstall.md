@@ -68,4 +68,12 @@ If the ISO on your USB drive does not contain an up-to-date version of archinsta
 Then you can run archinstall.
 
 ---
+
+# Post-install tweaks
+
+- install kcalc
+- install spectacle
+- make fish the default shell
+- install neofetch
+---
 EOF
