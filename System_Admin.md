@@ -38,6 +38,8 @@ Once the kernel starts up, the next big thing is "how do you start up everything
 
 https://dev.to/despider/why-not-to-use-root-user-317a 
 
+---
+
 # Boot process
 
 ## BIOS & UEFI
@@ -142,24 +144,50 @@ Then, to take the system to run level 5, let’s run the command:
 `sudo systemctl isolate graphical.target`  
 This command returns the run level to graphical.target, equivalent to level 5 for GUI.
 
-# Linux File System
+---
 
-- The root directory is the parent of all other directories. It's represented by a simple slash **/**.
+# Linux Directory Structure (critical Linux filesystem resources)
+
+- The **root** directory is the parent of all other directories. It's represented by a simple **slash "/"**.
 - The **/bin** folder contains core OS programs that must be accessible before /usr gets mounted at boot (includes mount, ls, cd, ...)
 - **/usr/bin** is a primary home for binaries that are not part of the base OS itself. Most user programs live here.
-
->[!note]
->Fun fact: USR stands for Unix System Resources, not user!
-
-- **/usr/local/bin** holds executables installed by the admin, usually after building them from source.
+- **/usr/local/bin** hosts executables installed by the admin, usually after building them from source.
   - This keeps local compiles separate to avoid overwriting system binaries
 - The **/sbin** directories house sysadmin utilities that require root access (like iptables and sshd)
 
-## Path environment variable
+>[!tip]
+>When the same binary exists in multiple directories, you can specify the default by reordering the directory precedence  
+in the **PATH** environment variable.
 
-When the same binary exists in multiple directories, you can specify the default by reordering 
+- **/lib** contains shared library files essential for /bin and /sbin binaries to function properly.
+  - These libraries need to be accessible early in the boot process, before mounting /usr
+  - They provide core functionality like C library routines (glibc) and compiler runtimes (libstdc++)
+- **/usr/lib** hosts libraries for /usr binaries that aren't critical for early system initialization
+  - This includes UI libraries like GTK and Qt, as well as language runtimes like Python
 
+>[!tip]
+>You can also tweak the library search order by modifying LD_LIBRARY_PATH
 
+- **/etc** is the home of Linux configuration files
+  - Text-based config files here control everything from networking to authentication services
+- For user data, **/home** stores documents, media and projects, while administrators have the exclusive **/root** folder
+- Fast-changing data like logs and caches live under **/var**
+  - we care about **/var/log** in particular to inspect hardware events, security issues, or performance problems
+- **/run** contains volatile runtime info like systemd details, user sessions, and logging daemons
+  - System services use /run for ongoing communication via sockets and lock files
+
+Finally, we come to the interconnected **/proc** & **/sys** virtual filesystems for Linux experts.  
+- **/proc** opens communication channels to inspect overall OS state
+  - we can check high-level metrics via `less /proc/cpuinfo`
+- **/sys** exposes lower-level kernel and hardware objects, allowing granular monitoring and configuration of components like:
+  - devices
+  - modules
+  - network stack
+- Combined, /proc & /sys provide complete system observability, spanning high-level metrics to low-level components interactions
+
+---
+
+# 
 
 ---
 EOF
