@@ -157,7 +157,7 @@ This command returns the run level to graphical.target, equivalent to level 5 fo
 
 >[!tip]
 >When the same binary exists in multiple directories, you can specify the default by reordering the directory precedence  
-in the **PATH** environment variable.
+in the **PATH** environment variable. To display the current order: `echo $PATH`
 
 - **/lib** contains shared library files essential for /bin and /sbin binaries to function properly.
   - These libraries need to be accessible early in the boot process, before mounting /usr
