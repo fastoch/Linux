@@ -185,6 +185,8 @@ Finally, we come to the interconnected **/proc** & **/sys** virtual filesystems 
   - network stack
 - Combined, /proc & /sys provide complete system observability, spanning high-level metrics to low-level components interactions
 
+More details: https://www.youtube.com/watch?v=P0QZnAnsQ4c 
+
 ---
 
 # 
