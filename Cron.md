@@ -12,10 +12,10 @@ src = https://www.youtube.com/watch?v=7cbP7fzn0D8
   - go to the very end of the file and add a new cron job
 
 A cron job consists of 6 fields:
-- minute
-- hour
+- minute (m)
+- hour (h)
 - day of month (dom)
-- month
+- month (mon)
 - day of the week (dow)
 - command
 
@@ -26,7 +26,14 @@ For example:
 - "execute this cmd at 3:00 on the 4th of July" would be "0 3 4 7 * cmd" 
 
 We can also use this notation: "**@hourly** cmd", which means "run this cmd every hour"  
-Or we could use **@reboot** to run a cmd on every reboot.
+Or we could use **@reboot** to run a cmd on every reboot.  
+
+## Running cron jobs as a specific user
+
+Most of the time, you probably don't want to run a cron job as your current user.  
+To edit the crontab for a different user: `sudo crontab -u username -e`
+
+@10min
 
 ---
 EOF
