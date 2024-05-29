@@ -25,17 +25,16 @@ For example:
 - "execute this cmd every sunday at 8:32" would be "32 8 * * 7".
 - "execute this cmd at 3:00 on the 4th of July" would be "0 3 4 7 * cmd" 
 
-We can also use this notation: "**@hourly** cmd", which means "run this cmd every hour"  
+We can also use this notation: "**@hourly** cmd", which means "run this cmd every hour".  
 Or we could use **@reboot** to run a cmd on every reboot.  
 
 ## Running cron jobs as a specific user
 
 Most of the time, you probably don't want to run a cron job as your current user.  
-To edit the crontab for a different user: `sudo crontab -u username -e`  
+- To edit the crontab for a different user: `sudo crontab -u username -e`  
+- To check the cron jobs of another user: `sudo crontab -u username -l`
 
-
-
-@10min
+@15min
 
 ---
 EOF
