@@ -31,7 +31,9 @@ Or we could use **@reboot** to run a cmd on every reboot.
 ## Running cron jobs as a specific user
 
 Most of the time, you probably don't want to run a cron job as your current user.  
-To edit the crontab for a different user: `sudo crontab -u username -e`
+To edit the crontab for a different user: `sudo crontab -u username -e`  
+
+
 
 @10min
 
