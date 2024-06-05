@@ -22,7 +22,7 @@ A cron job consists of 6 fields:
 Setting the value of a field to an asterisk * means "every" or "any".  
 For example:  
 - "execute this cmd every day at 9:05" would be "5 9 * * * cmd".
-- "execute this cmd every sunday at 8:32" would be "32 8 * * 7".
+- "execute this cmd every sunday at 8:32" would be "32 8 * * 7 cmd".
 - "execute this cmd at 3:00 on the 4th of July" would be "0 3 4 7 * cmd" 
 
 We can also use this notation: "**@hourly** cmd", which means "run this cmd every hour".  
@@ -33,6 +33,39 @@ Or we could use **@reboot** to run a cmd on every reboot.
 Most of the time, you probably don't want to run a cron job as your current user.  
 - To edit the crontab for a different user: `sudo crontab -u username -e`  
 - To check the cron jobs of another user: `sudo crontab -u username -l`
+
+## Running cron jobs as a Web server
+
+Let's see a more practical example. For this, we will install Apache: `sudo pacman -S apache`  
+https://archlinux.org/packages/?name=apache  
+
+To check it installed successfully, open a Web browser and browse to **localhost**.  
+You should get the default Apache start page.  
+
+Now that I have Apache installed, I should have a Web server user as well.  
+To check that: `cat /etc/passwd | grep www`  
+This command should return a user named **www-data**.  
+
+When you deploy a Website or a Web application, there might be a cron job that you'd like to run at regular intervals.  
+- maybe you're backing up the Website every night
+- or the Website itself has some sort of PHP script that should run once a week
+
+There's all kinds of reasons why you might want a cron job when running a Web server.  
+So, we're going to add a cron job to the **www-data** user.  
+
+If you try to switch to this user with `su www-data`, you will get a message telling you that this account is not available.  
+That's because the shell for that specific user is set to '**nologin**'.  
+
+A system user, by default, can't log in to the system.  
+**You really don't want anyone to log in as www-data.**  
+If someone was able to break in and to log in as that user, they could actually delete our entire Website, they could  
+insert some malware, they could do all kinds of nasty things.  
+
+But even though I can't log in to this account, I can still add a cron job to it.  
+`sudo crontab -u www-data -e`  
+
+
+
 
 @15min
 
