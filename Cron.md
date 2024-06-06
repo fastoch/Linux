@@ -64,10 +64,28 @@ insert some malware, they could do all kinds of nasty things.
 But even though I can't log in to this account, I can still add a cron job to it.  
 `sudo crontab -u www-data -e`  
 
+Then I scroll all the way down and add a cron job to my crontab.  
+I could decide to run a script every night at 3:00 AM: `0 3 * * * /usr/local/bin/website_backup.sh`  
+
+---
+
+Notice that I've included the **full path** to the script. That's very **important**.  
+Any time you are using cron, you should **always include the full path to the executable**.  
+
+On the command line, to execute this script manually, I don't have to type out the entire path.  
+That's because your **environment variable** named **PATH** includes /usr/local/bin by default, so your shell already knows  
+to look there for commands.
+
+>[!tip]
+>you can check the PATH variable for the current user with `echo $PATH`
+
+But when it comes to cron, the user you are running your cron job with may not have a full PATH available, maybe  
+/usr/local/bin is not part of that user's PATH, maybe their shell is not even checking the PATH variable.  
 
 
 
-@15min
+
+@17/19
 
 ---
 EOF
