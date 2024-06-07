@@ -46,6 +46,8 @@ Now that I have Apache installed, I should have a Web server user as well.
 To check that: `cat /etc/passwd | grep www`  
 This command should return a user named **www-data**.  
 
+### Example
+
 When you deploy a Website or a Web application, there might be a cron job that you'd like to run at regular intervals.  
 - maybe you're backing up the Website every night
 - or the Website itself has some sort of PHP script that should run once a week
@@ -67,9 +69,9 @@ But even though I can't log in to this account, I can still add a cron job to it
 Then I scroll all the way down and add a cron job to my crontab.  
 I could decide to run a script every night at 3:00 AM: `0 3 * * * /usr/local/bin/website_backup.sh`  
 
----
+### Always include the full path 
 
-Notice that I've included the **full path** to the script. That's very **important**.  
+In my previous example, notice that I've included the **full path** to the script. That's very **important**.  
 Any time you are using cron, you should **always include the full path to the executable**.  
 
 On the command line, to execute this script manually, I don't have to type out the entire path.  
@@ -82,10 +84,13 @@ to look there for commands.
 But when it comes to cron, the user you are running your cron job with may not have a full PATH available, maybe  
 /usr/local/bin is not part of that user's PATH, maybe their shell is not even checking the PATH variable.  
 
+## Useful Websites
+
+- https://crontab-generator.org/
+- 
 
 
 
-@17/19
 
 ---
 EOF
