@@ -17,7 +17,7 @@ src = https://www.youtube.com/watch?v=YS5Zh7KExvE
 
 
 
-@10min
+@12/88
 
 ---
 EOF
