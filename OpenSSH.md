@@ -13,8 +13,11 @@ src = https://www.youtube.com/watch?v=YS5Zh7KExvE
 >[!note]
 >OpenBSD est un système d'exploitation libre de type Unix, dérivé de 4.4BSD
 
+# Connecting to a server via OpenSSH
 
-@6min
+
+
+@10min
 
 ---
 EOF
