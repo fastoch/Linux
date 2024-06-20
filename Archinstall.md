@@ -1,4 +1,8 @@
-https://www.youtube.com/watch?v=56u5tddLxCI
+## Sources
+- https://www.youtube.com/watch?v=56u5tddLxCI
+- https://www.youtube.com/watch?v=WksxVLrALhg
+
+---
 
 # Change Keyboard Layout
 
