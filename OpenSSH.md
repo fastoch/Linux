@@ -1,4 +1,7 @@
-src = https://www.youtube.com/watch?v=YS5Zh7KExvE
+## Sources  
+
+- https://www.youtube.com/watch?v=YS5Zh7KExvE
+- https://wiki.archlinux.org/title/OpenSSH
 
 ---
 
@@ -15,7 +18,7 @@ src = https://www.youtube.com/watch?v=YS5Zh7KExvE
 
 # Connecting to a server via OpenSSH
 
-- syntax: `ssh user@hostURL -p port` or `ssh user@IPaddress - port`
+- syntax: `ssh user@hostURL -p port` or `ssh user@hostIPaddress - port`
 - then type the password en hit Enter
 - you can also connect via an SSH key: `ssh -i sshkey_path user@host -p port`
 - 
