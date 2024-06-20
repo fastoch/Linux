@@ -43,7 +43,7 @@ https://wiki.archlinux.org/title/iwd
 - profile > desktop > kde (desktop environment) + all open-source graphics driver + sddm (login manager)
 - audio > pipewire
 - kernel > linux-zen
-- additional packages: firefox fastfetch fish
+- additional packages: firefox fish
 - network config > networkManager
 - timezone > europe/Monaco
 - automatic time sync > true
@@ -77,5 +77,9 @@ Then you can run archinstall.
 - install spectacle
 - make fish the default shell
 - install neofetch
+- install qBittorrent
+- install ufw or firewalld
+
+
 ---
 EOF
