@@ -28,12 +28,13 @@
   - when you say "yes", it's going to save the remote server's fingerprint in this file, so it won't ask you to confirm next time
   - these fingerprints are also there for security reasons
   - if you get a warning stating that the target server's fingerprint has changed, you should avoid confirming the connection!!!
-- 
+-  to view ssh logs: https://www.strongdm.com/blog/view-ssh-logs
 
 
 
 
-@18/88
+
+@20/88
 
 ---
 EOF
