@@ -2,6 +2,7 @@
 
 - https://www.youtube.com/watch?v=YS5Zh7KExvE
 - https://wiki.archlinux.org/title/OpenSSH
+- https://wiki.archlinux.org/title/SSH_keys
 
 ---
 
@@ -21,7 +22,7 @@
 - syntax: `ssh user@hostURL -p port` or `ssh user@hostIPaddress - port`
 - then type the password en hit Enter
 - you can also connect via an SSH key: `ssh -i sshkey_path user@host -p port`
-- 
+- By default, keys are stored in the `~/.ssh/` directory
 
 
 
