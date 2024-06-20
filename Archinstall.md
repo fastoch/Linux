@@ -78,7 +78,7 @@ Then you can run archinstall.
 - make fish the default shell
 - install neofetch
 - install qBittorrent
-- install ufw (uncomplicated firewall)
+- install & configure ufw (uncomplicated firewall)
 
 
 ---
