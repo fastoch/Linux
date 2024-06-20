@@ -23,11 +23,15 @@
 - then type the password en hit Enter
 - you can also connect via an SSH key: `ssh -i sshkey_path user@host -p port`
 - By default, keys are stored in the `~/.ssh/` directory
+- in this directory, there's a file named `known_hosts`
+  - the first time you connect to a server, it's going to ask you "are you sure you want to connect to that machine?"
+  - when you say "yes", it's going to save the remote server's fingerprint in this file, so it won't ask you to confirm next time
+- 
 
 
 
 
-@15/88
+@17/88
 
 ---
 EOF
