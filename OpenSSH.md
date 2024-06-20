@@ -34,13 +34,21 @@
 
 In this section, we'll see how to create a config file that we can use with an SSH client to greatly simplify our future connections.  
 
+In our ~/.ssh directory, we have our ssh keys and our know_hosts file.  
+But there's another file that we can create that's not created by default: `touch ~/.ssh/config`  
+
+Then we can edit our file as in the following example: `vim ~/.ssh/config`
+```
+Host server1
+  Hostname 172.105.7.26
+  Port 22
+  User root
+```
 
 
 
 
-
-
-@22/88
+@24/88
 
 ---
 EOF
