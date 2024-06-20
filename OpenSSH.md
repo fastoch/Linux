@@ -27,14 +27,20 @@
   - the first time you connect to a server, it's going to ask you "are you sure you want to connect to that machine?"
   - when you say "yes", it's going to save the remote server's fingerprint in this file, so it won't ask you to confirm next time
   - these fingerprints are also there for security reasons
-  - if you get a warning stating that the target server's fingerprint has changed, you should avoid confirming the connection!!!
+  - if you get a **warning** stating that the target server's **fingerprint has changed**, you should **avoid confirming** the connection!!!
 -  to view ssh logs: https://www.strongdm.com/blog/view-ssh-logs
 
+# Configuring an OpenSSH client
+
+In this section, we'll see how to create a config file that we can use with an SSH client to greatly simplify our future connections.  
 
 
 
 
-@20/88
+
+
+
+@22/88
 
 ---
 EOF
