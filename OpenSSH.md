@@ -70,7 +70,7 @@ The downside to that though is if we fail the key or we don't have it, it will s
 Which means a hacker can still try to guess the pwd.
 In a later section, we'll see how to **disable pwd authentication**.  
 
-## Create an ssh key and add it to the remote server
+## Create an ssh key 
 
 >[!warning]
 >always check your keys before creating a new one, so you don't overwrite an existing key!
@@ -80,13 +80,34 @@ In a later section, we'll see how to **disable pwd authentication**.
 - specify where to save the file
 - enter a passphrase if you want to further improve the security (makes the key useless without the passphrase)
 
+When you generate a new ssh key, it actually creates a key pair: a private key and its associated public key.  
+We can now add the public key on the server end, which will allow us to connect to this server by providing the associated private key.  
+
+## Add the key pair to the remote server
+
+- display the public key `cat id_rsa.pub` (the key name may vary)
+- copy the key (select the output and ctrl + shift + c)
+- connect to the server: `ssh servername`
+- create an .ssh directory if needed: `mkdir .ssh`
+- `cd .ssh`
+- `vim authorized_keys`
+- paste your public key (ctrl + shift + v)
+- save the file (:wq + Enter)
+
+When I use the ssh command to connect to the server, it checks my private key against the public key on the remote end.  
+And if the mathematical link between those keys is correct, I'll be allowed to log in.  
+If I've set a passphrase when creating my key, I'll have to enter it.
+
+There's a better way to copy the public key to the target server. The syntax is:
+- `ssh-copy-id -i <input_file> -o <output_file>`
 
 ## Disable Password authentication
 
 
 
 
-@33/88
+
+@44/88
 
 ---
 EOF
