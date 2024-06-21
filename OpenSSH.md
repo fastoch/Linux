@@ -63,10 +63,21 @@ Host server2
 
 # Using public/private keys
 
+Using SSH keys allows for greater **security** and additional **convenience**.  
+This allows us to avoid having to type a password.  
+
+The downside to that though is if we fail the key or we don't have it, it will still fail over to ask us for the pwd.  
+Which means a hacker can still try to guess the pwd.
+In a later section, we'll see how to **disable pwd authentication**.  
 
 
 
-@28/88
+
+
+
+
+
+@30/88
 
 ---
 EOF
