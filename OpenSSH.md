@@ -70,14 +70,23 @@ The downside to that though is if we fail the key or we don't have it, it will s
 Which means a hacker can still try to guess the pwd.
 In a later section, we'll see how to **disable pwd authentication**.  
 
+## Create an ssh key and add it to the remote server
+
+>[!warning]
+>always check your keys before creating a new one, so you don't overwrite an existing key!
+>>If you overwrite a key that is your only way into a server, you won't be able to access this host anymore!
+
+- Run `ssh-keygen`
+- specify where to save the file
+- enter a passphrase if you want to further improve the security (makes the key useless without the passphrase)
+
+
+## Disable Password authentication
 
 
 
 
-
-
-
-@30/88
+@33/88
 
 ---
 EOF
