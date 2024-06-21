@@ -44,11 +44,29 @@ Host server1
   Port 22
   User root
 ```
+The line specifying the port is not necessary here, since 22 is the default port for SSH connections.  
+
+Then, instead of the usual ssh command, I can run this: `ssh server1`  
+
+We can include multiple servers in our config file:
+```
+Host server1
+  Hostname 172.105.7.26
+  Port 22
+  User root
+
+Host server2
+  Hostname 172.16.249.6
+  Port 2222
+  User toto
+```
+
+# Using public/private keys
 
 
 
 
-@24/88
+@28/88
 
 ---
 EOF
