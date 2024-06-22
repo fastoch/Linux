@@ -99,7 +99,17 @@ And if the mathematical link between those keys is correct, I'll be allowed to l
 If I've set a passphrase when creating my key, I'll have to enter it.
 
 There's a better way to copy the public key to the target server. The syntax is:
-- `ssh-copy-id -i <input_file> -o <output_file>`
+- `ssh-copy-id -i <input_file> username@servername`
+- example: `ssh-copy-id -i ~/.ssh/id_rsa.pub root@server1`
+- Then it confirms that your key has been added to the remote server
+- And you can now log into this server by running `ssh username@servername`
+
+Note that the `ssh-copy-id` command will create the `.ssh` directory on the remote server if it's not already there.  
+And it will also create a copy of the `authorized_keys` file, populated with the public key I've just copied.
+
+# Managing SSH keys
+
+
 
 ## Disable Password authentication
 
@@ -107,7 +117,9 @@ There's a better way to copy the public key to the target server. The syntax is:
 
 
 
-@44/88
+
+
+@46/88
 
 ---
 EOF
