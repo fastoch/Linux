@@ -73,8 +73,8 @@ In a later section, we'll see how to **disable pwd authentication**.
 ## Create an ssh key 
 
 >[!warning]
->always check your keys before creating a new one, so you don't overwrite an existing key!
->>If you overwrite a key that is your only way into a server, you won't be able to access this host anymore!
+>Always check your keys before creating a new one, so you don't overwrite an existing key!
+>If you overwrite a key that is your only way into a server, you won't be able to access this host anymore!
 
 - Run `ssh-keygen`
 - specify where to save the file
@@ -85,7 +85,7 @@ We can now add the public key on the server end, which will allow us to connect 
 
 ## Add the key pair to the remote server
 
-- display the public key `cat id_rsa.pub` (the key name may vary)
+- display the public key `cat id_rsa.pub` (the key name depends on the type of algorithm)
 - copy the key (select the output and ctrl + shift + c)
 - connect to the server: `ssh servername`
 - create an .ssh directory if needed: `mkdir .ssh`
@@ -109,9 +109,38 @@ And it will also create a copy of the `authorized_keys` file, populated with the
 
 # Managing SSH keys
 
+## Create a key pair for a specific server
+
+- Run `ssh-keygen -t ed25519 -C "some comment"`  
+- The -t flag is for choosing the type of algorithm
+- The -C flag is for adding a comment so you can remember what this key will be used for
+- This type of key (ed25519) is actually more secure than the default RSA
+- not only is it more secure, but the public key is going to be noticeably shorter as well
+- when it's asking you where to save the key, give the file a name that will help you remember what this key is for
+  - for example: `/home/fastoch/.ssh/server16_id_ed25519`
+- then enter a passphrase so that you can disable password authentication later on 
+
+>[!important]
+>As of OpenSSH version 9.5 (current version is 9.7), the `ssh-keygen` cmd will generate keys using the Ed25519 algorithm by default.
+  >https://www.youtube.com/watch?v=tdfBbpJPTGc
+
+## Caching the passphrase
+
+To avoid having to enter the passphrase every single time you want to connect, you can cache the key via the **ssh agent**.  
+The key will remain cached until you exit the terminal session or close the terminal window.  
+
+- Start the ssh agent: `eval "$(ssh-agent)"`
+- the previous cmd gives you the PID (process id) of the ssh agent
+- add a key to the ssh agent: `ssh-add <path to the private key>`
+- this cmd will ask for the passphrase
+
+>[!important]
+>if you're using a desktop Linux distro, the ssh agent is automatically running in the background and will unlock your key as soon
+>as you log in to the desktop. But if you're logged into a server, you don't have a GUI and you need to activate the ssh agent manually.
+
+# SSH server configuration
 
 
-## Disable Password authentication
 
 
 
@@ -119,7 +148,7 @@ And it will also create a copy of the `authorized_keys` file, populated with the
 
 
 
-@46/88
+@61/88
 
 ---
 EOF
