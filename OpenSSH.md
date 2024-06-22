@@ -27,7 +27,7 @@
   - the first time you connect to a server, it's going to ask you "are you sure you want to connect to that machine?"
   - when you say "yes", it's going to save the remote server's fingerprint in this file, so it won't ask you to confirm next time
   - these fingerprints are also there for security reasons
-  - if you get a **warning** stating that the target server's **fingerprint has changed**, you should **avoid confirming** the connection!!!
+  - if you get a **warning** stating that the target server's **fingerprint has changed**, you should **avoid confirming** the connection!
 -  to view ssh logs: https://www.strongdm.com/blog/view-ssh-logs
 
 # Configuring an OpenSSH client
@@ -145,7 +145,21 @@ So far we've been using the ssh client, but now it's time to focus a bit more on
 - First of all, we need to ensure the ssh server component is running on the remote machine
   - most Linux distros have the sshd binary to represent the server side (ssh daemon)
   - run `which sshd` to know which binary is used on your machine, most probably /usr/bin/sshd or /usr/sbin/sshd
-  - to check if the ssh daemin is running: `systemctl status sshd`
+  - to check if the ssh daemon is running: `systemctl status sshd`
+  - if it's not running: `systemctl start sshd`
+  - and to make sure that sshd gets started at boot: `systemctl enable sshd`
+- to configure the server side: `sudo vim /etc/ssh/sshd_config`
+  - a # symbol in front of a line means it's commented out and therefore not applied
+  - in this file, you can **change the port number**, which defaults to port 22
+  - you can set **PermitRootLogin** to **no** if you already have another user that you can login with via ssh
+  - you can also set **PasswordAuthentication** to **no** if you already configured a key-based authentication
+    - **make sure that you can login with your ssh key before you actually set this to no!**
+- inside the /etc/ssh folder, we have other important files = **host keys**: https://www.ssh.com/academy/ssh/host-key
+  - **don't delete the host keys** stored on a server, or you won't be able to reconnect to this server
+  - if you need to clone a server, be aware that those host keys need to be changed
+    - your ssh client will be very confused if all your servers share the same host keys
+    - it will think that same host keys = same server, then won't understand why the IP address & other things are different
+    - then it will suspect a man-in-the-middle attack
 - 
 
 
@@ -154,8 +168,7 @@ So far we've been using the ssh client, but now it's time to focus a bit more on
 
 
 
-
-@61/88
+@68/88
 
 ---
 EOF
