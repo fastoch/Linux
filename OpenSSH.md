@@ -143,8 +143,9 @@ The key will remain cached until you exit the terminal session or close the term
 
 So far we've been using the ssh client, but now it's time to focus a bit more on the server.  
 - First of all, we need to ensure the ssh server component is running on the remote machine
-  - most Linux distros have the sshd binary to represent the server side
+  - most Linux distros have the sshd binary to represent the server side (ssh daemon)
   - run `which sshd` to know which binary is used on your machine, most probably /usr/bin/sshd or /usr/sbin/sshd
+  - to check if the ssh daemin is running: `systemctl status sshd`
 - 
 
 
