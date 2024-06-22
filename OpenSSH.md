@@ -70,7 +70,7 @@ The downside to that though is if we fail the key or we don't have it, it will s
 Which means a hacker can still try to guess the pwd.
 In a later section, we'll see how to **disable pwd authentication**.  
 
-## Create an ssh key 
+## Create an SSH key 
 
 >[!warning]
 >Always check your keys before creating a new one, so you don't overwrite an existing key!
@@ -118,7 +118,8 @@ And it will also create a copy of the `authorized_keys` file, populated with the
 - not only is it more secure, but the public key is going to be noticeably shorter as well
 - when it's asking you where to save the key, give the file a name that will help you remember what this key is for
   - for example: `/home/fastoch/.ssh/server16_id_ed25519`
-- then enter a passphrase so that you can disable password authentication later on 
+- then enter a passphrase so that you can disable password authentication later on
+- Keep in mind that the key name won't appear once it gets copied to the `authorized_keys` file, only the comment will be visible
 
 >[!important]
 >As of OpenSSH version 9.5 (current version is 9.7), the `ssh-keygen` cmd will generate keys using the Ed25519 algorithm by default.
@@ -140,6 +141,11 @@ The key will remain cached until you exit the terminal session or close the term
 
 # SSH server configuration
 
+So far we've been using the ssh client, but now it's time to focus a bit more on the server.  
+- First of all, we need to ensure the ssh server component is running on the remote machine
+  - most Linux distros have the sshd binary to represent the server side
+  - run `which sshd` to know which binary is used on your machine, most probably /usr/bin/sshd or /usr/sbin/sshd
+- 
 
 
 
