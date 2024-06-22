@@ -125,7 +125,7 @@ And it will also create a copy of the `authorized_keys` file, populated with the
 >As of OpenSSH version 9.5 (current version is 9.7), the `ssh-keygen` cmd will generate keys using the Ed25519 algorithm by default.
   >https://www.youtube.com/watch?v=tdfBbpJPTGc
 
-## Caching the passphrase
+## Caching the key
 
 To avoid having to enter the passphrase every single time you want to connect, you can cache the key via the **ssh agent**.  
 The key will remain cached until you exit the terminal session or close the terminal window.  
