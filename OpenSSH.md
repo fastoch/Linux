@@ -142,6 +142,7 @@ The key will remain cached until you exit the terminal session or close the term
 # SSH server configuration
 
 So far we've been using the ssh client, but now it's time to focus a bit more on the server.  
+
 - First of all, we need to ensure the ssh server component is running on the remote machine
   - most Linux distros have the sshd binary to represent the server side (ssh daemon)
   - run `which sshd` to know which binary is used on your machine, most probably /usr/bin/sshd or /usr/sbin/sshd
@@ -153,22 +154,30 @@ So far we've been using the ssh client, but now it's time to focus a bit more on
   - in this file, you can **change the port number**, which defaults to port 22
   - you can set **PermitRootLogin** to **no** if you already have another user that you can login with via ssh
   - you can also set **PasswordAuthentication** to **no** if you already configured a key-based authentication
-    - **make sure that you can login with your ssh key before you actually set this to no!**
-- inside the /etc/ssh folder, we have other important files = **host keys**: https://www.ssh.com/academy/ssh/host-key
-  - **don't delete the host keys** stored on a server, or you won't be able to reconnect to this server
+    - **!!!make sure that you can log in with your ssh key before you actually set this to no!!!**
+- after you modified the config file, restart the ssh service: `systemctl restart sshd`
+  - make sure it didn't fail: `systemctl status sshd`
+  - NOTE that existing connections are not terminated when you restart sshd
+- then we need to test the config changes and verify the ssh connections still work
+  - DO NOT disconnect (ctrl + d) from your current session on the server until you've checked the new config
+  - open a new terminal window and try to ssh into the server, specify the port if you've changed it
+  - if the connection succeeds, then you can disconnect without risk
+
+## Host keys
+
+Inside the /etc/ssh folder, we have other important files = **host keys**: https://www.ssh.com/academy/ssh/host-key
+  - **DO NOT delete the host keys** stored on a server, or you won't be able to reconnect to this server
   - if you need to clone a server, be aware that those host keys need to be changed
     - your ssh client will be very confused if all your servers share the same host keys
     - it will think that same host keys = same server, then won't understand why the IP address & other things are different
     - then it will suspect a man-in-the-middle attack
-- 
+
+# Troubleshooting
 
 
 
 
-
-
-
-@68/88
+@70/88
 
 ---
 EOF
