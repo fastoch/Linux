@@ -162,6 +162,7 @@ So far we've been using the ssh client, but now it's time to focus a bit more on
   - DO NOT disconnect (ctrl + d) from your current session on the server until you've checked the new config
   - open a new terminal window and try to ssh into the server, specify the port if you've changed it
   - if the connection succeeds, then you can disconnect without risk
+- finally, **backup your ssh keys** somewhere safe, because if you lose them, you won't be able to access your servers anymore
 
 ## Host keys
 
@@ -172,12 +173,25 @@ Inside the /etc/ssh folder, we have other important files = **host keys**: https
     - it will think that same host keys = same server, then won't understand why the IP address & other things are different
     - then it will suspect a man-in-the-middle attack
 
+>[!important]
+>no matter what, I highly recommend that you use keys and disable pwd authentication on all of your servers.
+
 # Troubleshooting
 
+## Check the network layer
+
+- first, you need the openSSH client installed on your local computer
+- then, port 22 (or whichever port you've configured on the remote server) needs to be allowed on:
+  - the remote router
+  - the remote firewall
+  - the remote switch
+- you also need to **enable port forwarding** on these network devices
+
+## invalid permissions
+
+- if permissions are too open, then ssh will not allow 
 
 
-
-@70/88
 
 ---
 EOF
