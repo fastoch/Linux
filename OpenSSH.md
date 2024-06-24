@@ -189,9 +189,17 @@ Inside the /etc/ssh folder, we have other important files = **host keys**: https
 
 ## invalid permissions
 
-- if permissions are too open, then ssh will not allow 
+- if permissions are too open, ssh will not allow the connection via a private key
+  - run `ls -l ~/.ssh` to check your key permissions
+  - if some permissions are too open, `chmod 600 <privatekeyfile>` should do the trick
+
+## check the log files
+
+- on the remote server, cd into the directory that hosts your log files
+- 
 
 
+@82/88
 
 ---
 EOF
