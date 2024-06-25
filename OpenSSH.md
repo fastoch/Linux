@@ -201,12 +201,12 @@ Inside the /etc/ssh folder, we have other important files = **host keys**: https
 - if there's an issue during the connection attempt, you'll be able to see it in the logs (a failed pwd for example)
 
 **However**, following the log files **manually** is the **old way** of doing it.  
-**Nowadays, we are using systemd on most distributions and logging is actually built right into systemd.**  
+Nowadays, we are using **systemd** on most distributions and **logging** is actually built right into systemd.  
+So, we technically should be using **journalctl** to follow log files.  
+For example: `journalctl `
 
 
-
-
-
+@85/88
 
 ---
 EOF
