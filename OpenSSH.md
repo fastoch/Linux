@@ -200,8 +200,11 @@ Inside the /etc/ssh folder, we have other important files = **host keys**: https
 - open a new terminal window and try to ssh into the same server while tailing the logs
 - if there's an issue during the connection attempt, you'll be able to see it in the logs (a failed pwd for example)
 
-However, following the log files manually is the old way of doing it.  
-Nowadays, we are using **systemd** on most distributions and logging is actually built right in
+**However**, following the log files **manually** is the **old way** of doing it.  
+**Nowadays, we are using systemd on most distributions and logging is actually built right into systemd.**  
+
+
+
 
 
 
