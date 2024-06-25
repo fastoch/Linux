@@ -198,10 +198,12 @@ Inside the /etc/ssh folder, we have other important files = **host keys**: https
 - ssh into the remote server and cd into the directory that hosts your log files
 - tail the log file you're interested in: `tail -f tail -f /path/to/file` (the -f option stands for "follow")
 - open a new terminal window and try to ssh into the same server while tailing the logs
-- if there's an issue during the connection attempt, you'll be able to see it in the logs
+- if there's an issue during the connection attempt, you'll be able to see it in the logs (a failed pwd for example)
+
+However, following the log files manually is the old way of doing it.  
+Nowadays, we are using **systemd** on most distributions and logging is actually built right in
 
 
-@82/88
 
 ---
 EOF
