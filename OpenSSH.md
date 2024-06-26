@@ -178,6 +178,10 @@ Inside the /etc/ssh folder, we have other important files = **host keys**: https
 
 # Troubleshooting
 
+## make sure the ssh daemon is running on both the client and server
+
+`systemctl status sshd`
+
 ## Check the network layer
 
 - first, you need the openSSH client installed on your local computer
@@ -196,17 +200,18 @@ Inside the /etc/ssh folder, we have other important files = **host keys**: https
 ## check the log files
 
 - ssh into the remote server and cd into the directory that hosts your log files
-- tail the log file you're interested in: `tail -f tail -f /path/to/file` (the -f option stands for "follow")
+- tail the log file you're interested in: `tail -f /path/to/file` (the -f option stands for "follow")
 - open a new terminal window and try to ssh into the same server while tailing the logs
 - if there's an issue during the connection attempt, you'll be able to see it in the logs (a failed pwd for example)
 
-**However**, following the log files **manually** is the **old way** of doing it.  
+However, following the log files manually is the old way of doing it.  
 Nowadays, we are using **systemd** on most distributions and **logging** is actually built right into systemd.  
 So, we technically should be using **journalctl** to follow log files.  
-For example: `journalctl `
 
+For example: 
+- to show the log entries involving the ssh daemon: `journalctl -u sshd` (replace `sshd` with `ssh` depending on the distro)
+- to follow the new log entries live: `journalctl -fu sshd` 
 
-@85/88
 
 ---
 EOF
