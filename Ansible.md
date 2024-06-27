@@ -24,12 +24,21 @@ This is the only cmd that I have to run to set up a new computer.
 - Then, it will install Ansible.
 - After that, it will use Ansible to provision my new computer
 
->[!note]
->My script is using ansible-pull very heavily.
+>[!important]
+>My script uses ansible-pull very heavily. Ansible-pull is installed automatically when you install Ansible.
 
 ## About Ansible-Pull
 
-Normally, when you run Ansible, you have an Ansible server, and this server uses SSH to connect to all 
+**Ansible** runs on an Ansible **server** which uses SSH to connect to all of your computers and configure them (the config is **pushed**).  
+**Ansible-Pull** does the inverse. It runs on the **computer** you want to configure and pulls the config from the server to the computer.  
+
+Ansible-pull will download the changes from a **Git** repository, and will then run everything in that repo against itself.  
+Here's an example of an ansible-pull command: `ansible-pull -U https://github.com/fastoch/Ansible/mydesktopconfig.git`  
+
+>[!important]
+>The Git repo doesn't have to be hosted on Github. It can be hosted on a private Git server, in which case the URL will probably start with http instead of https.
+
+The Git repo has to be structured a very specific way. We'll get into how to create such a repo and how to populate it with actual configs.
 
 More details:
 - https://www.youtube.com/watch?v=sn1HQq_GFNE
@@ -37,7 +46,7 @@ More details:
 
 
 
-@7/68
+@10/68
 
 ---
 EOF
