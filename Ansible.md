@@ -11,7 +11,8 @@ This is the only cmd that I have to run to set up a new computer.
 
 ## What exactly is this cmd doing?
 
-- The `curl` cmd allows 
+- The `curl` cmd allows us to fetch something from a URL
+- `deploy`
 
 @6/68
 
