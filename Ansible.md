@@ -2,7 +2,7 @@ src = https://www.youtube.com/watch?v=gIDywsGBqf4
 
 ---
 
-# Using Ansible to automate your endpoints configuration
+# Using Ansible to automate your endpoints' configuration
 
 When I get a brand new computer and want to set it up, I just open up the terminal and run this cmd:
 - `curl deploy/bootstrap | sudo bash`
@@ -30,15 +30,17 @@ This is the only cmd that I have to run to set up a new computer.
 ## About Ansible-Pull
 
 **Ansible** runs on an Ansible **server** which uses SSH to connect to all of your computers and configure them (the config is **pushed**).  
-**Ansible-Pull** does the inverse. It runs on the **computer** you want to configure and pulls the config from the server to the computer.  
+**Ansible-Pull** does the opposite. It runs on the **computer** you want to configure and **pulls** the config from the server.  
 
-Ansible-pull will download the changes from a **Git** repository, and will then run everything in that repo against itself.  
+Ansible-pull will download the changes from a **Git** repository which must contain a special file named `local.yml`.  
 Here's an example of a typical ansible-pull command: `ansible-pull -U https://github.com/fastoch/Ansible/mydesktopconfig.git`  
 
 >[!important]
->The Git repo doesn't have to be hosted on Github. It can be hosted on a private Git server, in which case the URL will probably start with http instead of https.
+>The Git repo doesn't have to be hosted on Github, it can be hosted on a local Git server, in which case the URL will probably start
+>with http instead of https.
 
-The Git repo has to be structured a very specific way. We'll get into how to create such a repo and how to populate it with actual configs.
+**The Git repo has to be structured in a very specific way**.  
+We'll get into how to create such a repo and how to populate it with actual configs that will get pulled by your endpoints.
 
 More details:
 - https://www.youtube.com/watch?v=sn1HQq_GFNE
@@ -46,8 +48,8 @@ More details:
 
 ## Create a repository for Ansible-pull
 
-- in our previous `ansible-pull` command example, we only specified the repository's URL, we did not specify which file to run
-- the file that the `ansible-pull` command will run must be named `local.yml` and has to be located at the root of the repository
+- in our previous `ansible-pull` command, we only provided the repository's URL, we did not specify which file to run
+- the file that the `ansible-pull` command will run must be named `local.yml` and has to be located at the root of the repo
 
 Here's an sample from a typical `local.yml` file:
 
@@ -68,18 +70,41 @@ Here's an sample from a typical `local.yml` file:
       apt: update_cache=yes
       changed_when: False
       when: ansible_distribution in ["Debian", "Ubuntu"]
+
+# Run roles
+- hosts: all
+  tags: base
+  become: true
+  roles:
+    - base
+
+- hosts: workstation
+  tags: workstation
+  become: true
+  roles:
+    - workstation
+
+- hosts: server
+  tags: server
+  become: true
+  roles:
+    - server
 ```
 
 In this sample, you can see that:
 - first of all, I'm going to target all hosts
 - I'll run some pre_tasks against those hosts
   - pre_tasks are basically just tasks you want to run before anything else
-    - the first one will run the pacman module (the package manager for Arch Linux)
-    - it will use that module to update the cache
-    - but it will only do that if the distribution it's being run on is actually Archlinux
+    - the first play will run the pacman module, which is the package manager for Arch Linux
+    - it will use that module to update the package cache (update the repository index)
+    - but it will only do that if the distro it's being run on is actually Archlinux
+    - the next play does the same thing but uses the apt module, the package manager for Debian-based distros
 
-So my Ansible config is actually going to check the distro before "deciding" if a task should be run or not.
+So my Ansible config is actually going to check the distro before "deciding" if a task should be run or not.  
 
+- Then we have roles. Roles are explained in this video: https://www.youtube.com/watch?v=tq9sCeQNVYc
+  - A role allows you to categorize tasks and run them only against machines that are actually part of that role
+  - 
 
 
 @12/68
