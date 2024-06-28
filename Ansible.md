@@ -100,11 +100,17 @@ In this sample, you can see that:
     - but it will only do that if the distro it's being run on is actually Archlinux
     - the next play does the same thing but uses the apt module, the package manager for Debian-based distros
 
-So my Ansible config is actually going to check the distro before "deciding" if a task should be run or not.  
+This `when` keyword allows us to make Ansible check if a condition is true before running a task against a host.  
 
 - Then we have roles. Roles are explained in this video: https://www.youtube.com/watch?v=tq9sCeQNVYc
-  - A role allows you to categorize tasks and run them only against machines that are actually part of that role
-  - 
+  - A role allows you to categorize tasks and run those tasks only against machines that are part of that role
+  - The base role is for any machine, it's the base configuration I want to apply on all my hosts
+  - if a machine is made a member of the workstation role, then it will get workstation tasks run on it
+  - and the same logic applies to the mmembers of the server role
+
+Every computer will get the base role first, no matter what, and then will either get the workstation role or the server role.  
+**But how does Ansible know which role to apply?**
+
 
 
 @12/68
