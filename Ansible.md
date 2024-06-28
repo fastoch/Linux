@@ -93,7 +93,7 @@ Here's an sample from a typical `local.yml` file:
 
 In this sample, you can see that:
 - first of all, I'm going to target all hosts
-- I'll run some pre_tasks against those hosts
+- I'll run some **pre_tasks** against those hosts
   - pre_tasks are basically just tasks you want to run before anything else
     - the first play will run the pacman module, which is the package manager for Arch Linux
     - it will use that module to update the package cache (update the repository index)
@@ -102,7 +102,7 @@ In this sample, you can see that:
 
 This `when` keyword allows us to make Ansible check if a condition is true before running a task against a host.  
 
-- Then we have roles. Roles are explained in this video: https://www.youtube.com/watch?v=tq9sCeQNVYc
+- Then we have **roles**. Roles are explained in this video: https://www.youtube.com/watch?v=tq9sCeQNVYc
   - A role allows you to categorize tasks and run those tasks only against machines that are part of that role
   - The base role is for any machine, it's the base configuration I want to apply on all my hosts
   - if a machine is made a member of the workstation role, then it will get workstation tasks run on it
