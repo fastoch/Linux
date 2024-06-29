@@ -111,7 +111,7 @@ This `when` keyword is asking Ansible to check if a condition is true before run
 Every computer will get the base role first, no matter what, and then will either get the workstation role or the server role.  
 
 **But how does Ansible know which role to apply?**
-- This has to do with another important file which must also be present at the root of the Git repo
+- That has to do with another important file which must also be present at the root of the Git repo
 - Besides the `local.yml`, this other important file is `hosts`. This is an **inventory file**.
 - Normally, with ansible-pull, you don't have an inventory file, but you can still use one
 
@@ -123,15 +123,38 @@ debian-staging.home-network.io
 demo.learn-linux.tv
 kirin.home-network.io
 ```
+All of the machines that are listed underneath [workstation] are part of that role.  
+**That's how Ansible knows which role to apply.**  
 
 The structure of my local Git repo looks like this: 
-![image](https://github.com/fastoch/Linux/assets/89261095/b3f23227-3ec6-4e5f-9a85-8ad2c0185a30)
-![image](https://github.com/fastoch/Linux/assets/89261095/113b9725-cf2e-47e7-a408-f024756b6799)
+![image](https://github.com/fastoch/Linux/assets/89261095/b3f23227-3ec6-4e5f-9a85-8ad2c0185a30)  
+As you can see, the **root** of the repo contains our `local.yml` and `hosts` files.  
+
+![image](https://github.com/fastoch/Linux/assets/89261095/113b9725-cf2e-47e7-a408-f024756b6799)  
+Inside the **roles** folder, we have the 3 roles that we've mentioned earlier.  
+
+![image](https://github.com/fastoch/Linux/assets/89261095/f880ed37-ec1b-4a32-baed-e90066e9ffa1)  
+Only the **tasks** folder is actually required in an Ansible role.  
+This is the folder where you put the tasks that you want to be run when that role is being applied.  
+
+And inside the tasks folder, we have a `main.yml`, which is the only file that's required in a role.  
+![image](https://github.com/fastoch/Linux/assets/89261095/9e126b14-ce2b-4f61-9af5-a3350dba9cb2)   
+
+This `main.yml` file imports and runs a lot of other **.yml** files.  
+And each of those files corresponds to a specific task.  
+
+For example: 
+- `desktop_environments/gnome/keybindings.yml` is where I set all of my keyboard shortcuts
+- `desktop_environments/gnome/appearance.yml` is where I set my wallpaper and other stuff
+- `software/firefox.yml` will install firefox
+- ...
+
+There's no limit to the amount of things you can configure using Ansible automation capabilities!  
+This could take time at first, when writing all the config files required to cover your needs.  
+But it's really worth it when you have a lot of machines to configure and cannot imagine doing it manually...
 
 
-
-
-@13/68
+@16/68
 
 ---
 EOF
