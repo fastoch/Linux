@@ -49,7 +49,7 @@ More details:
 ## Create a repository for Ansible-pull
 
 - in our previous `ansible-pull` command, we only provided the repository's URL, we did not specify which file to run
-- the file that the `ansible-pull` command will run must be named `local.yml` and has to be located at the root of the repo
+- The file that the `ansible-pull` command will run is `local.yml` and it has to be located **at the root of the repo**
 
 Here's an sample from a typical `local.yml` file:
 
@@ -100,7 +100,7 @@ In this sample, you can see that:
     - but it will only do that if the distro it's being run on is actually Archlinux
     - the next play does the same thing but uses the apt module, the package manager for Debian-based distros
 
-This `when` keyword allows us to make Ansible check if a condition is true before running a task against a host.  
+This `when` keyword is asking Ansible to check if a condition is true before running a task against a given host.  
 
 - Then we have **roles**. Roles are explained in this video: https://www.youtube.com/watch?v=tq9sCeQNVYc
   - A role allows you to categorize tasks and run those tasks only against machines that are part of that role
@@ -109,8 +109,20 @@ This `when` keyword allows us to make Ansible check if a condition is true befor
   - and the same logic applies to the mmembers of the server role
 
 Every computer will get the base role first, no matter what, and then will either get the workstation role or the server role.  
-**But how does Ansible know which role to apply?**
 
+**But how does Ansible know which role to apply?**
+- This has to do with another important file which must also be present at the root of the Git repo
+- Besides the `local.yml`, this other important file is `hosts`. This is an **inventory file**.
+- Normally, with ansible-pull, you don't have an inventory file, but you can still use one
+
+Here's a sample from a typical inventory `hosts` file:
+```
+[workstation]
+arch-staging.home-network.io
+debian-staging.home-network.io
+demo.learn-linux.tv
+kirin.home-network.io
+```
 
 
 @13/68
