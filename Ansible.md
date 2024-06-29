@@ -124,6 +124,12 @@ demo.learn-linux.tv
 kirin.home-network.io
 ```
 
+The structure of my local Git repo looks like this: 
+![image](https://github.com/fastoch/Linux/assets/89261095/b3f23227-3ec6-4e5f-9a85-8ad2c0185a30)
+![image](https://github.com/fastoch/Linux/assets/89261095/113b9725-cf2e-47e7-a408-f024756b6799)
+
+
+
 
 @13/68
 
