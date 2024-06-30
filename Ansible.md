@@ -149,9 +149,7 @@ For example:
 - `software/firefox.yml` will install firefox
 - ...
 
-There's no limit to the amount of things you can configure using Ansible automation capabilities!  
-This could take time at first, when writing all the config files required to cover your needs.  
-But it's really worth it when you have a lot of machines to configure and cannot imagine doing it manually...
+
 
 
 @16/68
