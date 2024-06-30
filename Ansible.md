@@ -166,12 +166,30 @@ Now that you've seen how my config looks like, it's time for me to show you how 
 For this example, I will use Github, but you don't have to.  
 It really doesn't matter where you host your code, so long as you have a Git repo that you can access from a terminal.  
 
+- connect to your Github account
 - create a brand new repository
+- give it a meaningful name and a description
+- decide whether or not you want to make this repo public
+- add a README file
+- create the repo
+
+Now, you need to pull this repo down to your local machine.  
+But before you can do that, you need to **create an OpenSSH key pair and then install Git** on your computer.  
+This key pair won't be necessary when it comes to applying your Ansible code to your new device, but it does  
+make it a lot easier **to interact with the repo itself** such as making commits and things like that.
+
+To do that:
+- open a terminal
+- run `ssh-keygen -t ed25519`
+  - as of OpenSSH version 9.5, Ed25519 keys are now the default type, so `ssh-keygen` is enough)
+  - be careful where you save the key, as it might overwrite any existing key 
+    - the default path being `~/.ssh/id_ed25519`, you can name your key differently if you already have one with this name
+  - add a passphrase (recommended) and save it to your favorite password manager
 - 
 
 
 
-@18/68
+@19/68
 
 ---
 EOF
