@@ -221,10 +221,20 @@ Now, inside the dev folder, you should see a new folder with the same name as yo
 - write and quit with `:wq`
 - if you run `git status`, it will show you that you have unstaged changes
 - if your run `git diff README.md`, it will show you exactly what has changed since the last commit
-- 
+- run `git add README.md` to stage the changes
+- run `git commit -m "updated the readme file"` to commit and add some message to your commit
+- another `git status` will tell you "nothing to commit, working tree clean"
+- but you still need to publish your local commit to your Github repo with `git push origin main`
+- now if you refresh the Github home page of your repo, you will see the changes 
+
+>[!note]
+>Staged means that you have marked a modified file in its current version to go into your next commit snapshot.
+
+## installing Ansible and applying a basic config to our computer
 
 
-@28/68
+
+@30/68
 
 ---
 EOF
