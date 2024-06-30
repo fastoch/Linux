@@ -202,10 +202,29 @@ Now, we need to give Github our public key (default name is id_ed25519.pub):
 >The key starts with its type (ssh-ed25519) and ends with the comment (default is username@hostname).
 >When generating the key pair with `ssh-keygen`, you can use the -C option to customize the comment.
 
+Now, to pull the repo from Github to your local machine (to clone the repo):
+- go back to your Github repo home page
+- click the Code button
+- copy the SSH URL
+- in your terminal, create a master folder to host all of your Git repositories: `mkdir ~/dev`
+- `cd ~/dev`
+- now you can clone the repo from Github to your local dev environment with `git clone <SSH_URL>` (paste the SSH URL)
+- if it's the first time you're cloning a Github repo, you'll have to say yes and hit Enter to confirm the connection
+
+Now, inside the dev folder, you should see a new folder with the same name as your repo.
+
+## Making your first commit
+
+- `cd ~/dev/ansible_repo/`
+- `vim README.md`
+- add some relevant information to describe the purpose of this repo
+- write and quit with `:wq`
+- if you run `git status`, it will show you that you have unstaged changes
+- if your run `git diff README.md`, it will show you exactly what has changed since the last commit
+- 
 
 
-
-@25/68
+@28/68
 
 ---
 EOF
