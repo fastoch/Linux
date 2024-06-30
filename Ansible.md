@@ -187,17 +187,25 @@ To do that:
   - add a passphrase (recommended) and save it to your favorite password manager
 - this will tell you where the key (pair) has been saved
 
-Now, we need to give Github our public key (default name is id_ed25519.pub).
+Now, we need to give Github our public key (default name is id_ed25519.pub):
 - first, install Git with `sudo pacman -S git`
 - before we start using Git, we need to configure it:
   - `git config --global user.email "fastoch@ik.me`
   - `git config --global user.name "fastoch"`
-- 
+- you can check your Git config with `cat ~/.gitconfig`
+- now, go to your Github account, click on your profile icon at the top right and click on Settings
+- in the left pane, go to SSH and GPG keys and click on New SSH key
+- give your key a title and copy-paste the output of `cat ~/.ssh/id_ed25519.pub`
+- click Add SSH key to associate it with your Github account
+
+>[!note]
+>The key starts with its type (ssh-ed25519) and ends with the comment (default is username@hostname).
+>When generating the key pair with `ssh-keygen`, you can use the -C option to customize the comment.
 
 
 
 
-@22/68
+@25/68
 
 ---
 EOF
