@@ -230,11 +230,12 @@ Now, inside the dev folder, you should see a new folder with the same name as yo
 >[!note]
 >Staged means that you have marked a modified file in its current version to go into your next commit snapshot.
 
-## installing Ansible and applying a basic config to our computer
+## Creating a playbook
+
+Now we will see how to install Ansible and write some Ansible code to configure our computers.  
 
 
 
-### Creating a playbook
 
 
 
