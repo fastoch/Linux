@@ -46,7 +46,7 @@ More details:
 - https://www.youtube.com/watch?v=sn1HQq_GFNE
 - https://www.devopsschool.com/blog/what-is-ansible-pull-and-how-can-we-use-it/
 
-## Create a repository for Ansible-pull
+## How my repository looks like
 
 - in our previous `ansible-pull` command, we only provided the repository's URL, we did not specify which file to run
 - The file that the `ansible-pull` command will run is `local.yml` and it has to be located **at the root of the repo**
@@ -102,18 +102,22 @@ In this sample, you can see that:
 
 This `when` keyword is asking Ansible to check if a condition is true before running a task against a given host.  
 
+---
+
 - Then we have **roles**. Roles are explained in this video: https://www.youtube.com/watch?v=tq9sCeQNVYc
   - A role allows you to categorize tasks and run those tasks only against machines that are part of that role
   - The base role is for any machine, it's the base configuration I want to apply on all my hosts
-  - if a machine is made a member of the workstation role, then it will get workstation tasks run on it
-  - and the same logic applies to the mmembers of the server role
+  - if a machine is made a member of the workstation role, then it will get the workstation tasks run on it
+  - and the same logic applies to the members of the server role
 
 Every computer will get the base role first, no matter what, and then will either get the workstation role or the server role.  
 
+---
+
 **But how does Ansible know which role to apply?**
-- That has to do with another important file which must also be present at the root of the Git repo
+- That has to do with another important file which also has to be present at the root of the Git repo
 - Besides the `local.yml`, this other important file is `hosts`. This is an **inventory file**.
-- Normally, with ansible-pull, you don't have an inventory file, but you can still use one
+- Normally, with ansible-pull, you don't need an inventory file, but you can still use one
 
 Here's a sample from a typical inventory `hosts` file:
 ```
@@ -126,6 +130,8 @@ kirin.home-network.io
 All of the machines that are listed underneath [workstation] are part of that role.  
 **That's how Ansible knows which role to apply.**  
 
+---
+
 The structure of my local Git repo looks like this: 
 ![image](https://github.com/fastoch/Linux/assets/89261095/b3f23227-3ec6-4e5f-9a85-8ad2c0185a30)  
 As you can see, the **root** of the repo contains our `local.yml` and `hosts` files.  
@@ -137,22 +143,35 @@ Inside the **roles** folder, we have the 3 roles that we've mentioned earlier.
 Only the **tasks** folder is actually required in an Ansible role.  
 This is the folder where you put the tasks that you want to be run when that role is being applied.  
 
-And inside the tasks folder, we have a `main.yml`, which is the only file that's required in a role.  
+And inside the tasks folder, we have a `main.yml` file, which is the only file that's required in a role.  
 ![image](https://github.com/fastoch/Linux/assets/89261095/9e126b14-ce2b-4f61-9af5-a3350dba9cb2)   
 
-This `main.yml` file imports and runs a lot of other **.yml** files.  
-And each of those files corresponds to a specific task.  
+This `main.yml` file actually imports and runs a lot of other **.yml** files.  
+And each of those .yml files corresponds to a specific task.  
 
 For example: 
 - `desktop_environments/gnome/keybindings.yml` is where I set all of my keyboard shortcuts
 - `desktop_environments/gnome/appearance.yml` is where I set my wallpaper and other stuff
+- `desktop_environments/gnome/terminal.yml` contains all settings for customizing my terminal
 - `software/firefox.yml` will install firefox
+- `software/docker.yml` will install Docker
 - ...
 
+You can pretty much configure anything using Ansible automation capabilities.  
+
+## Setting up the Git repo
+
+Now that you've seen how my config looks like, it's time for me to show you how to create your own.  
+
+For this example, I will use Github, but you don't have to.  
+It really doesn't matter where you host your code, so long as you have a Git repo that you can access from a terminal.  
+
+- create a brand new repository
+- 
 
 
 
-@16/68
+@18/68
 
 ---
 EOF
