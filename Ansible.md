@@ -173,7 +173,7 @@ It really doesn't matter where you host your code, so long as you have a Git rep
 - add a README file
 - create the repo
 
-Now, you need to pull this repo down to your local machine.  
+Now, you want to pull this repo down to your local machine.  
 But before you can do that, you need to **create an OpenSSH key pair and then install Git** on your computer.  
 This key pair won't be necessary when it comes to applying your Ansible code to your new device, but it does  
 make it a lot easier **to interact with the repo itself** such as making commits and things like that.
@@ -185,11 +185,12 @@ To do that:
   - be careful where you save the key, as it might overwrite any existing key 
     - the default path being `~/.ssh/id_ed25519`, you can name your key differently if you already have one with this name
   - add a passphrase (recommended) and save it to your favorite password manager
-- 
+- this will tell you where the key (pair) has been saved
+- now, we need to give Github our public key (default name is id_ed25519.pub)
 
 
 
-@19/68
+@21/68
 
 ---
 EOF
