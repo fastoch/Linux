@@ -186,11 +186,18 @@ To do that:
     - the default path being `~/.ssh/id_ed25519`, you can name your key differently if you already have one with this name
   - add a passphrase (recommended) and save it to your favorite password manager
 - this will tell you where the key (pair) has been saved
-- now, we need to give Github our public key (default name is id_ed25519.pub)
+
+Now, we need to give Github our public key (default name is id_ed25519.pub).
+- first, install Git with `sudo pacman -S git`
+- before we start using Git, we need to configure it:
+  - `git config --global user.email "fastoch@ik.me`
+  - `git config --global user.name "fastoch"`
+- 
 
 
 
-@21/68
+
+@22/68
 
 ---
 EOF
