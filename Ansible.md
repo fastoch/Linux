@@ -272,6 +272,7 @@ Now that we've created a basic `local.yml` file, we have to stage and commit thi
 - `git add local.yml`
 - `git commit -m "added local.yml"`
 - `git push origin main`
+- refresh your Github repo page to see the changes
 
 >[!tip]
 >If you're not familiar with Git yet, use `git status` as often as possible to show and understand how version control works.
@@ -283,13 +284,22 @@ Because, for example, if it's a laptop that you're configuring, you could have t
 on the network. So an Ansible server wouldn't be able to reach it and would error out.  
 But with ansible-pull, the machine will just pull down the config whenever it's online.  
 
+## Testing my playbook
+
+- run `which htop` to make sure it's not already installed on your computer
+  - if it is, just replace the package name in your local.yml file with an application that is not already installed on your machine
+- copy the HTTPS URL from Github
+- run your ansible config with `sudo ansible-pull -U <HTTPS_URL>`
+
+>[!important]
+>We used the Github SSH URL previously to pull the repository down locally so we can work with it.
+>But to actually use this repo with `ansible-pull`, we should use the HTTPS URL.
 
 
 
 
 
-
-@36/68
+@38/68
 
 ---
 EOF
