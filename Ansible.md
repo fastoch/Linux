@@ -240,16 +240,30 @@ Now, inside the dev folder, you should see a new folder with the same name as yo
 
 Previously, we set up Git and we also created the repository that will host our Ansible files.  
 Now we will see how to install Ansible and write some Ansible code to configure our computers.  
-- install Ansible (on Arch Linux): `sudo pacman -S ansible`
-- while being at the root of your repo directory: `vim local.yml`
 
-Then, here's a basic example of a `local.yml` file:  
+- install Ansible (on Arch Linux): `sudo pacman -S ansible`
+- this will install 2 important binaries that you can find with:
+  - `which ansible-playbook`
+  - `which ansible-pull` 
+- while being at the root of your repo: `vim local.yml`
+
+Here's a basic example of a `local.yml` file:  
 ```yaml
 ---
+- hosts: localhost
+
 ```
 
+Commenting this example:
 - Every .yml file begins with three dashes.
-- 
+- when you run ansible-playbook, you're targeting specific **hosts**, but since we're using ansible-pull, what we're essentially doing is
+  pulling the repository down and running it against localhost (the computer we're currently using)
+
+### Why using ansible-pull instead of ansible-playbook
+
+When it comes to desktop and laptop configs, ansible-pull works a lot better than having an Ansible server.  
+Because, for example, if it's a laptop that you're configuring, you could have the lid closed, it could be in your bag, which means it's not available
+on the network. So an Ansible server wouldn't be able to reach it and would error out.
 
 
 
@@ -258,7 +272,7 @@ Then, here's a basic example of a `local.yml` file:
 
 
 
-@31/68
+@32/68
 
 ---
 EOF
