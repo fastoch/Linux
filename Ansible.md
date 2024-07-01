@@ -267,8 +267,14 @@ Commenting this `local.yml` file:
   pulling the repository down and running it against `localhost` (the computer we're currently using)
 - line 3: Ansible uses OpenSSH by default, but since we're running this `locally` and pulling the repository down, we don't need SSH.
 - `become` is enabling `sudo`, which is required to get admin privileges and make changes to our system
-- 
 
+Now that we've created a basic `local.yml` file, we have to stage and commit this new file to our local repo, then push it to our Github repo.  
+- `git add local.yml`
+- `git commit -m "added local.yml"`
+- `git push origin main`
+
+>[!tip]
+>If you're not familiar with Git yet, use `git status` as often as possible to show and understand how version control works.
 
 ### Why using ansible-pull instead of ansible-playbook
 
@@ -283,7 +289,7 @@ But with ansible-pull, the machine will just pull down the config whenever it's 
 
 
 
-@35/68
+@36/68
 
 ---
 EOF
