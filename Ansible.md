@@ -251,19 +251,31 @@ Here's a basic example of a `local.yml` file:
 ```yaml
 ---
 - hosts: localhost
+  connection: local
+  become: true
 
+  tasks:
+  - name: install htop
+    package:
+      name: htop  
 ```
 
-Commenting this example:
-- Every .yml file begins with three dashes.
-- when you run ansible-playbook, you're targeting specific **hosts**, but since we're using ansible-pull, what we're essentially doing is
-  pulling the repository down and running it against localhost (the computer we're currently using)
+Commenting this `local.yml` file:
+- the **indentation is very important** in a .yml file
+- Every .yml file begins with three **dashes**.
+- when you run ansible-playbook, you're targeting specific `hosts`, but since we're using ansible-pull, what we're essentially doing is
+  pulling the repository down and running it against `localhost` (the computer we're currently using)
+- line 3: Ansible uses OpenSSH by default, but since we're running this `locally` and pulling the repository down, we don't need SSH.
+- `become` is enabling `sudo`, which is required to get admin privileges and make changes to our system
+- 
+
 
 ### Why using ansible-pull instead of ansible-playbook
 
 When it comes to desktop and laptop configs, ansible-pull works a lot better than having an Ansible server.  
 Because, for example, if it's a laptop that you're configuring, you could have the lid closed, it could be in your bag, which means it's not available
-on the network. So an Ansible server wouldn't be able to reach it and would error out.
+on the network. So an Ansible server wouldn't be able to reach it and would error out.  
+But with ansible-pull, the machine will just pull down the config whenever it's online.  
 
 
 
@@ -272,7 +284,8 @@ on the network. So an Ansible server wouldn't be able to reach it and would erro
 
 
 
-@32/68
+
+@33/68
 
 ---
 EOF
