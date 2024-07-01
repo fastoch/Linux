@@ -114,7 +114,8 @@ Every computer will get the base role first, no matter what, and then will eithe
 
 ---
 
-**But how does Ansible know which role to apply?**
+### But how does Ansible know which role to apply?
+
 - That has to do with another important file which also has to be present at the root of the Git repo
 - Besides the `local.yml`, this other important file is `hosts`. This is an **inventory file**.
 - Normally, with ansible-pull, you don't need an inventory file, but you can still use one
@@ -132,7 +133,8 @@ All of the machines that are listed underneath [workstation] are part of that ro
 
 ---
 
-The structure of my local Git repo looks like this: 
+### How does my local Git repo looks like
+ 
 ![image](https://github.com/fastoch/Linux/assets/89261095/b3f23227-3ec6-4e5f-9a85-8ad2c0185a30)  
 As you can see, the **root** of the repo contains our `local.yml` and `hosts` files.  
 
@@ -158,6 +160,8 @@ For example:
 - ...
 
 You can pretty much configure anything using Ansible automation capabilities.  
+
+---
 
 ## Setting up the Git repo
 
@@ -230,9 +234,22 @@ Now, inside the dev folder, you should see a new folder with the same name as yo
 >[!note]
 >Staged means that you have marked a modified file in its current version to go into your next commit snapshot.
 
+---
+
 ## Creating a playbook
 
+Previously, we set up Git and we also created the repository that will host our Ansible files.  
 Now we will see how to install Ansible and write some Ansible code to configure our computers.  
+- install Ansible (on Arch Linux): `sudo pacman -S ansible`
+- while being at the root of your repo directory: `vim local.yml`
+
+Then, here's a basic example of a `local.yml` file:  
+```yaml
+---
+```
+
+- Every .yml file begins with three dashes.
+- 
 
 
 
@@ -240,7 +257,8 @@ Now we will see how to install Ansible and write some Ansible code to configure 
 
 
 
-@30/68
+
+@31/68
 
 ---
 EOF
