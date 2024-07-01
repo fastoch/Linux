@@ -369,11 +369,21 @@ Ansible has a ton of modules available:
 - then, we use the `copy` module to copy a file
 - finally, we use the `dconf` module twice
 
+In order to make our new config works, we need to create a `files` directory and add our `wallpaper.png` in it:
+- `cd ~/dev/ansible_repo/`
+- `mkdir files`
+- download a wallpaper you like and save it into `~/dev/ansible_repo/files/`
+- stage those changes, commit and push to Github:
+  - `git add files/`
+  - `git commit -m "added wallpaper file"`
+  - `git add local.yml`
+  - `git commit -m "added wallpaper config"`
+  - `git push origin main`
 
 
 
 
-@48/68
+@52/68
 
 ---
 EOF
