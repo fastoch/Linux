@@ -307,7 +307,7 @@ Here's our new `local.yml`:
   become: true
 
   tasks:
-  - name: install htop
+  - name: install htop, tmux & neofetch
     package:
       name:
         - htop
@@ -315,9 +315,16 @@ Here's our new `local.yml`:
         - neofetch
 ```
 
+- after modifying this file, write and quit
+- stage it: `git add local.yml`
+- commit: `commit -m "added additional packages"`
+- push changes to Github: `git push origin main`
+
+Now, you can run `sudo ansible-pull -U <HTTPS_URL>` to run the new playbook and it will install the specified packages on your device.
 
 
-@40/68
+
+@42/68
 
 ---
 EOF
