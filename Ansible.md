@@ -283,9 +283,7 @@ But with ansible-pull, the machine will just pull down the config whenever it's 
 
 
 
-
-
-@33/68
+@35/68
 
 ---
 EOF
