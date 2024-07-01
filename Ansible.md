@@ -277,7 +277,7 @@ Now that we've created a basic `local.yml` file, we have to stage and commit thi
 >[!tip]
 >If you're not familiar with Git yet, use `git status` as often as possible to show and understand how version control works.
 
-### Why using ansible-pull instead of ansible-playbook
+### Why using ansible-pull instead of ansible-playbook?
 
 When it comes to desktop and laptop configs, ansible-pull works a lot better than having an Ansible server.  
 Because, for example, if it's a laptop that you're configuring, you could have the lid closed, it could be in your bag, which means it's not available
@@ -291,15 +291,33 @@ But with ansible-pull, the machine will just pull down the config whenever it's 
 - copy the HTTPS URL from Github
 - run your ansible config with `sudo ansible-pull -U <HTTPS_URL>`
 
+As previously explained, we don't need to provide the playbook name, as ansible-pull assumes that it's going to find a playbook named `local.yml`.
+
 >[!important]
->We used the Github SSH URL previously to pull the repository down locally so we can work with it.
+>We used the Github SSH URL previously to pull the repository down locally so we can work with it (`git clone`).
 >But to actually use this repo with `ansible-pull`, we should use the HTTPS URL.
 
+## Improving our playbook
+
+Here's our new `local.yml`:
+```yaml
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  - name: install htop
+    package:
+      name:
+        - htop
+        - tmux
+        - neofetch
+```
 
 
 
-
-@38/68
+@40/68
 
 ---
 EOF
