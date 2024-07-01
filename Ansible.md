@@ -321,7 +321,7 @@ Here's our new `local.yml`:
 - commit: `commit -m "added additional packages"`
 - push changes to Github: `git push origin main`
 
-Now, you can run `sudo ansible-pull -U <HTTPS_URL>` to run the new playbook and it will install the specified packages on your device.
+Now, you can run `sudo ansible-pull -U <HTTPS_URL>` to run the new playbook, which will install the 3 packages on your device.
 
 ---
 
