@@ -25,7 +25,8 @@ This is the only cmd that I have to run to set up a new computer.
 - After that, it will use Ansible to provision my new computer
 
 >[!important]
->My script uses ansible-pull very heavily. Ansible-pull is installed automatically when you install Ansible.
+>My script uses ansible-pull very heavily. <br>
+>Ansible-pull is installed automatically when you install Ansible.
 
 ## About Ansible-Pull
 
@@ -36,8 +37,8 @@ Ansible-pull will download the changes from a **Git** repository which must cont
 Here's an example of a typical ansible-pull command: `ansible-pull -U https://github.com/fastoch/Ansible/mydesktopconfig.git`  
 
 >[!important]
->The Git repo doesn't have to be hosted on Github, it can be hosted on a local Git server, in which case the URL will probably start
->with http instead of https.
+>The Git repo doesn't have to be hosted on Github. <br>
+>It can be hosted on a local Git server, in which case the URL will probably start with http instead of https.
 
 **The Git repo has to be structured in a very specific way**.  
 We'll get into how to create such a repo and how to populate it with actual configs that will get pulled by your endpoints.
@@ -203,7 +204,7 @@ Now, we need to give Github our public key (default name is id_ed25519.pub):
 - click Add SSH key to associate it with your Github account
 
 >[!note]
->The key starts with its type (ssh-ed25519) and ends with the comment (default is username@hostname).
+>The key starts with its type (ssh-ed25519) and ends with the comment (default is username@hostname). <br>
 >When generating the key pair with `ssh-keygen`, you can use the -C option to customize the comment.
 
 Now, to pull the repo from Github to your local machine (to clone the repo):
@@ -294,7 +295,7 @@ But with ansible-pull, the machine will just pull down the config whenever it's 
 As previously explained, we don't need to provide the playbook name, as ansible-pull assumes that it's going to find a playbook named `local.yml`.
 
 >[!important]
->We used the Github SSH URL previously to pull the repository down locally so we can work with it (`git clone`).
+>We used the Github SSH URL previously to pull the repository down locally so we can work with it (`git clone`). <br>
 >But to actually use this repo with `ansible-pull`, we should use the HTTPS URL.
 
 ## Improving our playbook
@@ -322,9 +323,57 @@ Here's our new `local.yml`:
 
 Now, you can run `sudo ansible-pull -U <HTTPS_URL>` to run the new playbook and it will install the specified packages on your device.
 
+---
+
+Let's modify our `local.yml` file once again:
+```yaml
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  - name: install htop, tmux & neofetch
+    package:
+      name:
+        - htop
+        - tmux
+        - neofetch
+
+  - name: copy wallpaper file
+    copy:
+      src: files/wallpaper.png
+      dest: /usr/share/backgrounds/ansible-wallpaper.png
+      owner: root
+      group: root
+
+  - name: set wallpaper
+    dconf:
+      key: "/org/gnome/desktop/background/picture-uri"
+      value: "'file:///usr/share/backgrounds/favorite-wallpaper.png'"
+
+  - name: set wallpaper position
+    dconf:
+      key: "/org/gnome/desktop/background/picture-options"
+      value: "'zoom'"
+```
+
+>[!note]
+>URI = Uniform Resource Identifier <br>
+>file:// is the prefix for the file protocol <br>
+>file:/// is the prefix for the file protocol, plus a leading / pointing to the root directory <br>
+>https://linuxconfig.org/introduction-to-the-dconf-configuration-system
+
+Ansible has a ton of modules available:
+- In our example, we use the `package` module to install 3 packages
+- then, we use the `copy` module to copy a file
+- finally, we use the `dconf` module twice
 
 
-@42/68
+
+
+
+@48/68
 
 ---
 EOF
