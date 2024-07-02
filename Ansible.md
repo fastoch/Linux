@@ -348,11 +348,13 @@ Let's modify our `local.yml` file once again:
       group: root
 
   - name: set wallpaper
+    become_user: fastoch
     dconf:
       key: "/org/gnome/desktop/background/picture-uri"
       value: "'file:///usr/share/backgrounds/favorite-wallpaper.png'"
 
   - name: set wallpaper position
+    become_user: fastoch
     dconf:
       key: "/org/gnome/desktop/background/picture-options"
       value: "'zoom'"
@@ -368,6 +370,9 @@ Ansible has a ton of modules available:
 - In our example, we use the `package` module to install 3 packages
 - then, we use the `copy` module to copy a file
 - finally, we use the `dconf` module twice
+  - the dconf module needs to know which user to change the keys & values for, hence the `become_user` line 
+
+---
 
 In order to make our new config works, we need to create a `files` directory and add our `wallpaper.png` in it:
 - `cd ~/dev/ansible_repo/`
@@ -380,10 +385,17 @@ In order to make our new config works, we need to create a `files` directory and
   - `git commit -m "added wallpaper config"`
   - `git push origin main`
 
+To stage & commit all files that have been changed: `git commit -am "some descriptive message"`  
+This command will not stage & commit new files though. See https://git-scm.com/docs/git-commit  
+
+---
+
+There's one more file we need:
 
 
 
-@52/68
+
+@53/68
 
 ---
 EOF
