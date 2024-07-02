@@ -385,12 +385,14 @@ In order to make our new config works, we need to create a `files` directory and
   - `git commit -m "added wallpaper config"`
   - `git push origin main`
 
+---
+
 To stage & commit all files that have been changed: `git commit -am "some descriptive message"`  
 This command will not stage & commit new files though. See https://git-scm.com/docs/git-commit  
 
 ---
 
-There's one more file we need:
+There's one more file we need before running our playbook against our current host:
 
 
 
