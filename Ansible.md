@@ -370,7 +370,8 @@ Ansible has a ton of modules available:
 - In our example, we use the `package` module to install 3 packages
 - then, we use the `copy` module to copy a file
 - finally, we use the `dconf` module twice
-  - the dconf module needs to know which user to change the keys & values for, hence the `become_user` line 
+  - the dconf module needs to know which user to change the keys & values for, hence the `become_user` line
+  - this dconf module depends on psutil Python library. To install it: `sudo pacman -S python-psutil`  
 
 ---
 
@@ -390,9 +391,9 @@ In order to make our new config works, we need to create a `files` directory and
 To stage & commit all files that have been changed: `git commit -am "some descriptive message"`  
 This command will not stage & commit new files though. See https://git-scm.com/docs/git-commit  
 
----
 
-There's one more file we need before running our playbook against our current host:
+
+
 
 
 
