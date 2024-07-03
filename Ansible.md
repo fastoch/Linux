@@ -34,7 +34,7 @@ This is the only cmd that I have to run to set up a new computer.
 **Ansible-Pull** does the opposite. It runs on the **computer** you want to configure and **pulls** the config from the server.  
 
 Ansible-pull will download the changes from a **Git** repository which must contain a special file named `local.yml`.  
-Here's an example of a typical ansible-pull command: `ansible-pull -U https://github.com/fastoch/Ansible/mydesktopconfig.git`  
+Here's an example of a typical ansible-pull command: `ansible-pull -U https://github.com/fastoch/ansible_laptop.git`  
 
 >[!important]
 >The Git repo doesn't have to be hosted on Github. <br>
@@ -214,13 +214,13 @@ Now, to pull the repo from Github to your local machine (to clone the repo):
 - in your terminal, create a master folder to host all of your Git repositories: `mkdir ~/dev`
 - `cd ~/dev`
 - now you can clone the repo from Github to your local dev environment with `git clone <SSH_URL>` (paste the SSH URL)
-- if it's the first time you're cloning a Github repo, you'll have to say yes and hit Enter to confirm the connection
+- if it's the first time you're cloning a Github repo, you'll have to type 'yes' and hit Enter to confirm the connection
 
 Now, inside the dev folder, you should see a new folder with the same name as your repo.
 
 ## Making your first commit
 
-- `cd ~/dev/ansible_repo/`
+- `cd ~/dev/ansible_laptop/`
 - `vim README.md`
 - add some relevant information to describe the purpose of this repo
 - write and quit with `:wq`
@@ -376,9 +376,9 @@ Ansible has a ton of modules available:
 ---
 
 In order to make our new config works, we need to create a `files` directory and add our `wallpaper.png` in it:
-- `cd ~/dev/ansible_repo/`
+- `cd ~/dev/ansible_laptop/`
 - `mkdir files`
-- download a wallpaper you like and save it into `~/dev/ansible_repo/files/`
+- download a wallpaper you like and save it into `~/dev/ansible_laptop/files/`
 - stage those changes, commit and push to Github:
   - `git add files/`
   - `git commit -m "added wallpaper file"`
@@ -443,10 +443,10 @@ Let's add one more thing to our Ansible playbook (at the very end of the file):
 ```
 
 We need to add a copy of our custom .bashrc file to the files/ folder:  
-`cp ~/.bashrc ~/dev/ansible_repo/files/.bashrc`  
+`cp ~/.bashrc ~/dev/ansible_laptop/files/.bashrc`  
 
 Then, we need to stage all changes: `git add .`  
-Now, we can commit: `git commit -am "added .bashrc config"`  
+Now, we can commit: `git commit -m "added .bashrc config"`  
 Finally, publish that to Github: `git push origin main`  
 And run the playbook: `sudo ansible-pull -U https://github.com/fastoch/ansible_laptop.git`  
 
@@ -522,13 +522,29 @@ Commenting the 3 new tasks:
 
 ---
 
-Let's create the source file `sudoer_velociraptor` required to add the new user to sudoers:  
+Let's create that source file that we need to add the new user to sudoers:  
+- `cd ~/dev/ansible_laptop/files`
+- `vim sudoer_velociraptor`
+
+This file will look like this:  
+```
+velociraptor ALL=(ALL) NOPASSWD: ALL 
 ```
 
-```
+- save this file with `:wq`
+- `cd ..`
+- `git add .`
+- `git commit -m "added auto-provision for ansible runs"`
+- `git push origin main`
+- `sudo ansible-pull -U https://github.com/fastoch/ansible_laptop.git`
 
+---
 
-@64/68
+Now we can check that our user 'velociraptor' has been created: `cat /etc/passwd`  
+And we can list the cronjobs for that user: `sudo crontab -u velociraptor -l`  
+We should get a similar output:  
+![image](https://github.com/fastoch/Linux/assets/89261095/1840fe16-1928-4219-91c7-cebc9b0c3b1a)
+
 
 ---
 EOF
