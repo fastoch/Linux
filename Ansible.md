@@ -502,22 +502,33 @@ Let's add some additional plays (=tasks):
     copy:
       src: files/sudoer_velociraptor
       dest: /etc/sudoers.d/velociraptor
-      owner:
-      group:
-      mode: 
+      owner: root
+      group: root
+      mode: 0440
 
   - name: add ansible-pull cron job
     cron:
-      
+      name: ansible auto-provision
+      user: velociraptor
+      minute: "*/10"
+      job: ansible-pull -o -U https://github.com/fastoch/ansible_laptop.git
 ```
 
 Commenting the 3 new tasks:
 - we add a system user to run Ansible automatically any time we commit changes to the repo
-- then we add this user to the sudoers
+- then we add this user to the sudoers (permissions are set to read for the owner and the group members)
+- finally, we add a cron job to automate the ansible-pull execution every time changes are made to the Github repo
+  - this cron job will run every 10 minutes only if changes have been made to the repo (hence the `-o` option)
+
+---
+
+Let's create the source file `sudoer_velociraptor` required to add the new user to sudoers:  
+```
+
+```
 
 
-
-@60/68
+@64/68
 
 ---
 EOF
