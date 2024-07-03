@@ -500,8 +500,8 @@ Let's add some additional plays (=tasks):
 
   - name: set up sudo for ansible user
     copy:
-      src:
-      dest:
+      src: files/sudoer_velociraptor
+      dest: /etc/sudoers.d/velociraptor
       owner:
       group:
       mode: 
@@ -512,7 +512,8 @@ Let's add some additional plays (=tasks):
 ```
 
 Commenting the 3 new tasks:
-- we add a system user (velociraptor) to run Ansible automatically any time we commit changes to the repo
+- we add a system user to run Ansible automatically any time we commit changes to the repo
+- then we add this user to the sudoers
 
 
 
