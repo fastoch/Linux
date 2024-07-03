@@ -492,8 +492,27 @@ Let's add some additional plays (=tasks):
       dest: /home/fastoch/.bashrc
       owner: fastoch
       group: fastoch
+
+  - name: add ansible user
+    user:
+      name: velociraptor
+      system: yes
+
+  - name: set up sudo for ansible user
+    copy:
+      src:
+      dest:
+      owner:
+      group:
+      mode: 
+
+  - name: add ansible-pull cron job
+    cron:
+      
 ```
 
+Commenting the 3 new tasks:
+- we add a system user (velociraptor) to run Ansible automatically any time we commit changes to the repo
 
 
 
