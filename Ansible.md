@@ -371,7 +371,7 @@ Ansible has a ton of modules available:
 - then, we use the `copy` module to copy a file
 - finally, we use the `dconf` module twice
   - the dconf module needs to know which user to change the keys & values for, hence the `become_user` line
-  - this dconf module depends on psutil Python library. To install it: `sudo pacman -S python-psutil`  
+  - the dconf module depends on psutil Python library. To install it on Arch: `sudo pacman -S python-psutil`  
 
 ---
 
@@ -388,17 +388,21 @@ In order to make our new config works, we need to create a `files` directory and
 
 ---
 
-To stage & commit all files that have been changed: `git commit -am "some descriptive message"`  
+To stage & commit all changes: `git commit -am "some descriptive message"`  
 This command will not stage & commit new files though. See https://git-scm.com/docs/git-commit  
 
+---
+
+Once we have pushed our last changes to our Github Ansible repo, we can test our playbook against our new laptop:  
+`sudo ansible-pull -U https//github.com/fastoch/ansible_laptop.git`  
+
+You should be able to see the wallpaper change while the command is running.
 
 
 
 
 
-
-
-@53/68
+@54/68
 
 ---
 EOF
