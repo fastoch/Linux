@@ -389,20 +389,115 @@ In order to make our new config works, we need to create a `files` directory and
 ---
 
 To stage & commit all changes: `git commit -am "some descriptive message"`  
-This command will not stage & commit new files though. See https://git-scm.com/docs/git-commit  
+This command will not add & commit new files though. See https://git-scm.com/docs/git-commit  
 
 ---
 
-Once we have pushed our last changes to our Github Ansible repo, we can test our playbook against our new laptop:  
+Once we have pushed the last changes to our Github Ansible repo, we can test our playbook against a new laptop:  
 `sudo ansible-pull -U https//github.com/fastoch/ansible_laptop.git`  
 
 You should be able to see the wallpaper change while the command is running.
 
+---
+
+Let's add one more thing to our Ansible playbook (at the very end of the file):  
+```yaml
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  - name: install htop, tmux & neofetch
+    package:
+      name:
+        - htop
+        - tmux
+        - neofetch
+
+  - name: copy wallpaper file
+    copy:
+      src: files/wallpaper.png
+      dest: /usr/share/backgrounds/ansible-wallpaper.png
+      owner: root
+      group: root
+
+  - name: set wallpaper
+    become_user: fastoch
+    dconf:
+      key: "/org/gnome/desktop/background/picture-uri"
+      value: "'file:///usr/share/backgrounds/favorite-wallpaper.png'"
+
+  - name: set wallpaper position
+    become_user: fastoch
+    dconf:
+      key: "/org/gnome/desktop/background/picture-options"
+      value: "'zoom'"
+
+  - name: copy .bashrc file
+    copy:
+      src: files/.bashrc
+      dest: /home/fastoch/.bashrc
+      owner: fastoch
+      group: fastoch
+```
+
+We need to add a copy of our custom .bashrc file to the files/ folder:  
+`cp ~/.bashrc ~/dev/ansible_repo/files/.bashrc`  
+
+Then, we need to stage all changes: `git add .`  
+Now, we can commit: `git commit -am "added .bashrc config"`  
+Finally, publish that to Github: `git push origin main`  
+And run the playbook: `sudo ansible-pull -U https://github.com/fastoch/ansible_laptop.git`  
+
+---
+
+Let's add some additional plays (=tasks):  
+```yaml
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  - name: install htop, tmux & neofetch
+    package:
+      name:
+        - htop
+        - tmux
+        - neofetch
+
+  - name: copy wallpaper file
+    copy:
+      src: files/wallpaper.png
+      dest: /usr/share/backgrounds/ansible-wallpaper.png
+      owner: root
+      group: root
+
+  - name: set wallpaper
+    become_user: fastoch
+    dconf:
+      key: "/org/gnome/desktop/background/picture-uri"
+      value: "'file:///usr/share/backgrounds/favorite-wallpaper.png'"
+
+  - name: set wallpaper position
+    become_user: fastoch
+    dconf:
+      key: "/org/gnome/desktop/background/picture-options"
+      value: "'zoom'"
+
+  - name: copy .bashrc file
+    copy:
+      src: files/.bashrc
+      dest: /home/fastoch/.bashrc
+      owner: fastoch
+      group: fastoch
+```
 
 
 
 
-@54/68
+@60/68
 
 ---
 EOF
