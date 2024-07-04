@@ -10,8 +10,8 @@ src: https://youtu.be/xg9GcuxeRwk
   - to install it: `sudo pacman -S plocate`
 - before using the `locate` command for the first time, run `sudo updatedb`
 - then try to locate a random file with `locate <filename>`
-- run `sudo updatedb` every now and then to update the database that `plocate` uses to find files
+- if your system uses the `plocate` package, then there's a cron job that will update the database periodically 
 
 
 
-@5/10
+@7/10
