@@ -13,4 +13,5 @@ src: https://youtu.be/xg9GcuxeRwk
 - run `sudo updatedb` every now and then to update the database that `plocate` uses to find files
 
 
+
 @5/10
