@@ -9,8 +9,10 @@ src: https://youtu.be/xg9GcuxeRwk
   - actually, `mlocate` is now obsolete and `plocate` is much faster
   - to install the plocate package: `sudo pacman -S plocate`
 - before using the `locate` command for the first time, run `sudo updatedb`
-- then try to locate a random file with `locate <filename>`
-- if you use the `plocate` package, then there's a cron job that updates the database periodically 
+  - when you install the `plocate` package, a cron job will update the database periodically 
+- then try to locate a random file with `locate <filename>`, no need to provide a path
+- to ignore case: `plocate -i <filename>`
+- 
 
 
 @7/10
