@@ -195,7 +195,7 @@ To do that:
 Now, we need to give Github our public key (default name is id_ed25519.pub):
 - first, install Git with `sudo pacman -S git`
 - before we start using Git, we need to configure it:
-  - `git config --global user.email "fastoch@ik.me`
+  - `git config --global user.email "fastoch@ik.me"`
   - `git config --global user.name "fastoch"`
 - you can check your Git config with `cat ~/.gitconfig`
 - now, go to your Github account, click on your profile icon at the top right and click on Settings
